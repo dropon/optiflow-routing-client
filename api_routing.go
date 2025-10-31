@@ -143,9 +143,8 @@ func (a *RoutingAPIService) CalculateRouteExecute(r ApiCalculateRouteRequest) (*
 	if r.profile != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "profile", r.profile, "form", "")
 	} else {
-        var defaultValue string = "EUR_TRAILER_TRUCK"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "profile", defaultValue, "form", "")
-        r.profile = &defaultValue
+		var defaultValue string = "EUR_TRAILER_TRUCK"
+		r.profile = &defaultValue
 	}
 	if r.vehicle != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "vehicle", r.vehicle, "deepObject", "")
@@ -351,9 +350,8 @@ func (a *RoutingAPIService) CalculateRoutePostExecute(r ApiCalculateRoutePostReq
 	if r.profile != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "profile", r.profile, "form", "")
 	} else {
-        var defaultValue string = "EUR_TRAILER_TRUCK"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "profile", defaultValue, "form", "")
-        r.profile = &defaultValue
+		var defaultValue string = "EUR_TRAILER_TRUCK"
+		r.profile = &defaultValue
 	}
 	if r.vehicle != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "vehicle", r.vehicle, "deepObject", "")

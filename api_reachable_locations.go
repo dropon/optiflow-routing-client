@@ -196,9 +196,8 @@ func (a *ReachableLocationsAPIService) GetReachableLocationsExecute(r ApiGetReac
 	if r.maximumPollingPeriod != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "maximumPollingPeriod", r.maximumPollingPeriod, "form", "")
 	} else {
-        var defaultValue int32 = 0
-        parameterAddToHeaderOrQuery(localVarQueryParams, "maximumPollingPeriod", defaultValue, "form", "")
-        r.maximumPollingPeriod = &defaultValue
+		var defaultValue int32 = 0
+		r.maximumPollingPeriod = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -386,17 +385,15 @@ func (a *ReachableLocationsAPIService) StartAndCreateReachableLocationsExecute(r
 	if r.profile != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "profile", r.profile, "form", "")
 	} else {
-        var defaultValue string = "EUR_TRAILER_TRUCK"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "profile", defaultValue, "form", "")
-        r.profile = &defaultValue
+		var defaultValue string = "EUR_TRAILER_TRUCK"
+		r.profile = &defaultValue
 	}
 	parameterAddToHeaderOrQuery(localVarQueryParams, "horizon", r.horizon, "form", "")
 	if r.horizonType != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "horizonType", r.horizonType, "form", "")
 	} else {
-        var defaultValue HorizonType = "TRAVEL_TIME"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "horizonType", defaultValue, "form", "")
-        r.horizonType = &defaultValue
+		var defaultValue HorizonType = "TRAVEL_TIME"
+		r.horizonType = &defaultValue
 	}
 	if r.options != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "options", r.options, "deepObject", "")
