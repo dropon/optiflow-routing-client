@@ -1,6 +1,3 @@
-module github.com/GIT_USER_ID/GIT_REPO_ID
+module github.com/dropon/optiflow-optimsation-client
 
 go 1.18
-
-require (
-)
