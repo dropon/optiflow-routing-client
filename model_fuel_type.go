@@ -15,20 +15,20 @@ import (
 	"fmt"
 )
 
-// FuelType The fuel type of the vehicle. The fuel types _CNG_GASOLINE_ and _LNG_GASOLINE_ are used for dual-fuel vehicles, therefore the **dualFuelRatio** has to be specified. These fuel types cannot be used with hybrid vehicles.  Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for `emissions`.
+// FuelType The fuel type of the vehicle. The fuel types _CNG_GASOLINE_ and _LNG_GASOLINE_ are used for dual-fuel vehicles, therefore the **dualFuelRatio** has to be specified. These fuel types cannot be used with hybrid vehicles.  Supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for `emissions`. 
 type FuelType string
 
 // List of FuelType
 const (
-	GASOLINE                FuelType = "GASOLINE"
-	DIESEL                  FuelType = "DIESEL"
-	COMPRESSED_NATURAL_GAS  FuelType = "COMPRESSED_NATURAL_GAS"
+	GASOLINE FuelType = "GASOLINE"
+	DIESEL FuelType = "DIESEL"
+	COMPRESSED_NATURAL_GAS FuelType = "COMPRESSED_NATURAL_GAS"
 	LIQUEFIED_PETROLEUM_GAS FuelType = "LIQUEFIED_PETROLEUM_GAS"
-	LIQUEFIED_NATURAL_GAS   FuelType = "LIQUEFIED_NATURAL_GAS"
-	CNG_GASOLINE            FuelType = "CNG_GASOLINE"
-	LPG_GASOLINE            FuelType = "LPG_GASOLINE"
-	ETHANOL                 FuelType = "ETHANOL"
-	NONE_FUELTYPE           FuelType = "NONE"
+	LIQUEFIED_NATURAL_GAS FuelType = "LIQUEFIED_NATURAL_GAS"
+	CNG_GASOLINE FuelType = "CNG_GASOLINE"
+	LPG_GASOLINE FuelType = "LPG_GASOLINE"
+	ETHANOL FuelType = "ETHANOL"
+	NONE FuelType = "NONE"
 )
 
 // All allowed values of FuelType enum
@@ -122,3 +122,4 @@ func (v *NullableFuelType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
