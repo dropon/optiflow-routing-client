@@ -20,27 +20,27 @@ type LowEmissionZoneApprovals string
 
 // List of LowEmissionZoneApprovals
 const (
-	NONE_LOW_EMISSION_ZONE_APPROVALS      LowEmissionZoneApprovals = "NONE"
-	AT_EURO_1                             LowEmissionZoneApprovals = "AT_EURO_1"
-	AT_EURO_2                             LowEmissionZoneApprovals = "AT_EURO_2"
-	AT_EURO_3                             LowEmissionZoneApprovals = "AT_EURO_3"
-	AT_EURO_4                             LowEmissionZoneApprovals = "AT_EURO_4"
-	AT_EURO_5                             LowEmissionZoneApprovals = "AT_EURO_5"
-	AT_EURO_6                             LowEmissionZoneApprovals = "AT_EURO_6"
-	DE_GREEN_LOW_EMISSION_ZONE_APPROVALS  LowEmissionZoneApprovals = "DE_GREEN"
-	DE_YELLOW_LOW_EMISSION_ZONE_APPROVALS LowEmissionZoneApprovals = "DE_YELLOW"
-	DE_RED_LOW_EMISSION_ZONE_APPROVALS    LowEmissionZoneApprovals = "DE_RED"
-	DK_AUTHORIZED                         LowEmissionZoneApprovals = "DK_AUTHORIZED"
-	ES_CAT_B                              LowEmissionZoneApprovals = "ES_CAT_B"
-	ES_CAT_C                              LowEmissionZoneApprovals = "ES_CAT_C"
-	ES_CAT_ECO                            LowEmissionZoneApprovals = "ES_CAT_ECO"
-	ES_CAT_ZERO                           LowEmissionZoneApprovals = "ES_CAT_ZERO"
-	FR_CRITAIR_0                          LowEmissionZoneApprovals = "FR_CRITAIR_0"
-	FR_CRITAIR_1                          LowEmissionZoneApprovals = "FR_CRITAIR_1"
-	FR_CRITAIR_2                          LowEmissionZoneApprovals = "FR_CRITAIR_2"
-	FR_CRITAIR_3                          LowEmissionZoneApprovals = "FR_CRITAIR_3"
-	FR_CRITAIR_4                          LowEmissionZoneApprovals = "FR_CRITAIR_4"
-	FR_CRITAIR_5                          LowEmissionZoneApprovals = "FR_CRITAIR_5"
+	NONE LowEmissionZoneApprovals = "NONE"
+	AT_EURO_1 LowEmissionZoneApprovals = "AT_EURO_1"
+	AT_EURO_2 LowEmissionZoneApprovals = "AT_EURO_2"
+	AT_EURO_3 LowEmissionZoneApprovals = "AT_EURO_3"
+	AT_EURO_4 LowEmissionZoneApprovals = "AT_EURO_4"
+	AT_EURO_5 LowEmissionZoneApprovals = "AT_EURO_5"
+	AT_EURO_6 LowEmissionZoneApprovals = "AT_EURO_6"
+	DE_GREEN LowEmissionZoneApprovals = "DE_GREEN"
+	DE_YELLOW LowEmissionZoneApprovals = "DE_YELLOW"
+	DE_RED LowEmissionZoneApprovals = "DE_RED"
+	DK_AUTHORIZED LowEmissionZoneApprovals = "DK_AUTHORIZED"
+	ES_CAT_B LowEmissionZoneApprovals = "ES_CAT_B"
+	ES_CAT_C LowEmissionZoneApprovals = "ES_CAT_C"
+	ES_CAT_ECO LowEmissionZoneApprovals = "ES_CAT_ECO"
+	ES_CAT_ZERO LowEmissionZoneApprovals = "ES_CAT_ZERO"
+	FR_CRITAIR_0 LowEmissionZoneApprovals = "FR_CRITAIR_0"
+	FR_CRITAIR_1 LowEmissionZoneApprovals = "FR_CRITAIR_1"
+	FR_CRITAIR_2 LowEmissionZoneApprovals = "FR_CRITAIR_2"
+	FR_CRITAIR_3 LowEmissionZoneApprovals = "FR_CRITAIR_3"
+	FR_CRITAIR_4 LowEmissionZoneApprovals = "FR_CRITAIR_4"
+	FR_CRITAIR_5 LowEmissionZoneApprovals = "FR_CRITAIR_5"
 )
 
 // All allowed values of LowEmissionZoneApprovals enum
@@ -146,3 +146,4 @@ func (v *NullableLowEmissionZoneApprovals) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

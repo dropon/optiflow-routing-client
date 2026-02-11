@@ -785,7 +785,8 @@ paths:
 
           Make sure to assign unique names to all off-road and on-road waypoints in the request to obtain the route ID.
           Otherwise, the route ID cannot be used for ETA calculation because the waypoints cannot be identified. Furthermore,
-          the route ID must not contain route-manipulation waypoints, combined-transport waypoints or vehicle parameters at waypoints.
+          the route ID must not contain route-manipulation waypoints, combined-transport waypoints or vehicle parameters at waypoints
+          and must not have been calculated with **options[routingMode]=MONETARY**.
         explode: false
         in: path
         name: routeId
@@ -3052,7 +3053,7 @@ components:
               * `value` - The invalid parameter value.
             * `ROUTING_PARAMETER_NOT_SUPPORTED_BY_GET_ROUTE_BY_ROUTE_ID` - The requested parameter is not supported by this **getRouteByRouteId** operation.
               * `value` - The invalid parameter value.
-            * `ROUTING_OPENING_INTERVALS_REQUIRE_TIME` - When using opening intervals with a waypoint and with **options[trafficMode]** _AVERAGE_ a start time has to be specified.
+            * `ROUTING_OPENING_INTERVALS_REQUIRE_TIME` - When using waypoints with opening intervals or a **routeId** containing such waypoints, a start time has to be specified when **options[trafficMode]** is _AVERAGE_.
             * `ROUTING_ARRIVAL_TIME_WITH_SCHEDULE` - **options[arrivalTime]** cannot be used with the **results** _SCHEDULE_REPORT_ and _SCHEDULE_EVENT_ nor when **openingIntervals**, **serviceTime** or **workingHoursPreset** are specified.
               * `value` - The invalid parameter value.
             * `ROUTING_INVALID_NUMBER_OF_COORDINATES` - The polyline cannot be parsed because the number of coordinates is not even or less than 4.

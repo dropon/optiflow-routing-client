@@ -22,13 +22,13 @@ var _ MappedNullable = &ReachableOptions{}
 type ReachableOptions struct {
 	DrivingDirection *DrivingDirection `json:"drivingDirection,omitempty"`
 	// Defines the start time for **drivingDirection** _OUTBOUND_ or the arrival time for **drivingDirection** _INBOUND_ formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339). If none of them is specified the current time will be used.  If the date-time string does not include an explicit offset to UTC, the time will be interpreted as the local time of the waypoint. The date must not be before 1970-01-01T00:00:00+00:00 nor after 2037-12-31T23:59:59+00:00. The response will contain the offset to UTC specified in the request or that of the waypoint. For best results it should not be more than one month in the past nor more than six months in the future. See [here](./concepts/date-and-time) for more information on the relevance of date and time.
-	ReferenceTime *time.Time            `json:"referenceTime,omitempty"`
-	TrafficMode   *ReachableTrafficMode `json:"trafficMode,omitempty"`
+	ReferenceTime *time.Time `json:"referenceTime,omitempty"`
+	TrafficMode *ReachableTrafficMode `json:"trafficMode,omitempty"`
 	// Comma-separated list of countries the route is allowed to pass. By default, all countries are allowed. If this parameter is present, only these countries are allowed to be passed, i.e. drive only in these countries. Countries are represented according to their [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) if referring to a subdivision. This parameter is mutually exclusive with **prohibitedCountries** and will be ignored, if a **routeId** is specified.
 	AllowedCountries *string `json:"allowedCountries,omitempty"`
 	// Comma-separated list of countries the route must not pass. By default, all countries are allowed. If this parameter is present, all but the given countries are allowed to be passed, i.e. do not drive in these countries.  Countries are represented according to their [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) if referring to a subdivision. This parameter is mutually exclusive with **allowedCountries** and will be ignored, if a **routeId** is specified.
 	ProhibitedCountries *string `json:"prohibitedCountries,omitempty"`
-	// Pipe-separated list of polylines.   Roads and combined transports that intersect the given polylines will be considered as blocked. Each list element is a polyline. Each point is a coordinate of latitude and longitude. Coordinates and points are separated by a comma. Format: `<poly1_lat1>,<poly1_lon1>,...,<poly1_latN>,<poly1_lonN>|<poly2_lat1>,<poly2_lon1>,...,<poly2_latN>,<poly2_lonN>|...`   Notes: * Be aware of the URL length restrictions. * If there is no other route connecting two waypoints the will be reported as violated and correspondingly violation events with type **BLOCKED_ROAD_BY_INTERSECTION** will be reported if violation events are requested. * Requests will be rejected if at least one provided polyline   * does not consist of an even number of coordinates,   * consists of less than two points,   * contains invalid coordinates or   * intersects more than 5000 road segments.  This parameter will be ignored, if a **routeId** is specified.
+	// Pipe-separated list of polylines.   Roads and combined transports that intersect the given polylines will be considered as blocked. Each list element is a polyline. Each point is a coordinate of latitude and longitude. Coordinates and points are separated by a comma. Format: `<poly1_lat1>,<poly1_lon1>,...,<poly1_latN>,<poly1_lonN>|<poly2_lat1>,<poly2_lon1>,...,<poly2_latN>,<poly2_lonN>|...`   Notes: * Be aware of the URL length restrictions. * If there is no other route connecting two waypoints the will be reported as violated and correspondingly violation events with type **BLOCKED_ROAD_BY_INTERSECTION** will be reported if violation events are requested. * Requests will be rejected if at least one provided polyline   * does not consist of an even number of coordinates,   * consists of less than two points,   * contains invalid coordinates or   * intersects more than 5000 road segments.  This parameter will be ignored, if a **routeId** is specified. 
 	BlockIntersectingRoads *string `json:"blockIntersectingRoads,omitempty"`
 }
 
@@ -40,7 +40,7 @@ func NewReachableOptions() *ReachableOptions {
 	this := ReachableOptions{}
 	var drivingDirection DrivingDirection = OUTBOUND
 	this.DrivingDirection = &drivingDirection
-	var trafficMode ReachableTrafficMode = AVERAGE_REACHABLE_TRAFFIC_MODE
+	var trafficMode ReachableTrafficMode = AVERAGE
 	this.TrafficMode = &trafficMode
 	return &this
 }
@@ -52,7 +52,7 @@ func NewReachableOptionsWithDefaults() *ReachableOptions {
 	this := ReachableOptions{}
 	var drivingDirection DrivingDirection = OUTBOUND
 	this.DrivingDirection = &drivingDirection
-	var trafficMode ReachableTrafficMode = AVERAGE_REACHABLE_TRAFFIC_MODE
+	var trafficMode ReachableTrafficMode = AVERAGE
 	this.TrafficMode = &trafficMode
 	return &this
 }
@@ -250,7 +250,7 @@ func (o *ReachableOptions) SetBlockIntersectingRoads(v string) {
 }
 
 func (o ReachableOptions) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -315,3 +315,5 @@ func (v *NullableReachableOptions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -195,7 +195,7 @@ import (
 )
 
 func main() {
-	routeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | The route ID returned from a previous route calculation. See [here](./concepts/route-ids) for more information.  Make sure to assign unique names to all off-road and on-road waypoints in the request to obtain the route ID. Otherwise, the route ID cannot be used for ETA calculation because the waypoints cannot be identified. Furthermore, the route ID must not contain route-manipulation waypoints, combined-transport waypoints or vehicle parameters at waypoints. 
+	routeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | The route ID returned from a previous route calculation. See [here](./concepts/route-ids) for more information.  Make sure to assign unique names to all off-road and on-road waypoints in the request to obtain the route ID. Otherwise, the route ID cannot be used for ETA calculation because the waypoints cannot be identified. Furthermore, the route ID must not contain route-manipulation waypoints, combined-transport waypoints or vehicle parameters at waypoints and must not have been calculated with **options[routingMode]=MONETARY**. 
 	waypoint := *openapiclient.NewPositionAtWaypoint("Name_example") // PositionAtWaypoint |  (optional)
 	position := *openapiclient.NewPositionOnRoute(float64(49.480301), float64(6.110667), "NextWaypointName_example") // PositionOnRoute |  (optional)
 	time := time.Now() // time.Time | Defines the time when the vehicle position was captured formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339). If not specified the current time will be used, i.e. the given position of the vehicle is its current position.  If the date-time string does not include an explicit offset to UTC, the time will be interpreted as the local time of the position of the vehicle. The date must not be before 1970-01-01T00:00:00+00:00 nor after 2037-12-31T23:59:59+00:00.  The response will contain the offset to UTC specified in the request, otherwise it will contain the offset to UTC of the position of the vehicle. For best results the time should be only several minutes in the past or in the future, otherwise live traffic will not be considered properly. (optional)
@@ -219,7 +219,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**routeId** | **string** | The route ID returned from a previous route calculation. See [here](./concepts/route-ids) for more information.  Make sure to assign unique names to all off-road and on-road waypoints in the request to obtain the route ID. Otherwise, the route ID cannot be used for ETA calculation because the waypoints cannot be identified. Furthermore, the route ID must not contain route-manipulation waypoints, combined-transport waypoints or vehicle parameters at waypoints.  | 
+**routeId** | **string** | The route ID returned from a previous route calculation. See [here](./concepts/route-ids) for more information.  Make sure to assign unique names to all off-road and on-road waypoints in the request to obtain the route ID. Otherwise, the route ID cannot be used for ETA calculation because the waypoints cannot be identified. Furthermore, the route ID must not contain route-manipulation waypoints, combined-transport waypoints or vehicle parameters at waypoints and must not have been calculated with **options[routingMode]&#x3D;MONETARY**.  | 
 
 ### Other Parameters
 

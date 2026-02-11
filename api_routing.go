@@ -495,7 +495,7 @@ GetEstimatedTimeOfArrival Method for GetEstimatedTimeOfArrival
 Calculates the estimated time of arrival (ETA) based on a previously calculated route and the position of the vehicle.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param routeId The route ID returned from a previous route calculation. See [here](./concepts/route-ids) for more information.  Make sure to assign unique names to all off-road and on-road waypoints in the request to obtain the route ID. Otherwise, the route ID cannot be used for ETA calculation because the waypoints cannot be identified. Furthermore, the route ID must not contain route-manipulation waypoints, combined-transport waypoints or vehicle parameters at waypoints. 
+ @param routeId The route ID returned from a previous route calculation. See [here](./concepts/route-ids) for more information.  Make sure to assign unique names to all off-road and on-road waypoints in the request to obtain the route ID. Otherwise, the route ID cannot be used for ETA calculation because the waypoints cannot be identified. Furthermore, the route ID must not contain route-manipulation waypoints, combined-transport waypoints or vehicle parameters at waypoints and must not have been calculated with **options[routingMode]=MONETARY**. 
  @return ApiGetEstimatedTimeOfArrivalRequest
 */
 func (a *RoutingAPIService) GetEstimatedTimeOfArrival(ctx context.Context, routeId string) ApiGetEstimatedTimeOfArrivalRequest {
