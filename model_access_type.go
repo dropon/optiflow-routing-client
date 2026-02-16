@@ -20,9 +20,9 @@ type AccessType string
 
 // List of AccessType
 const (
-	ENTER_ACCESSTYPE AccessType = "ENTER"
-	EXIT_ACCESSTYPE  AccessType = "EXIT"
-	PASS_ACCESSTYPE  AccessType = "PASS"
+	ENTER AccessType = "ENTER"
+	EXIT AccessType = "EXIT"
+	PASS AccessType = "PASS"
 )
 
 // All allowed values of AccessType enum
@@ -110,3 +110,4 @@ func (v *NullableAccessType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
