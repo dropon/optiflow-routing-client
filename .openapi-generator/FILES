@@ -86,6 +86,7 @@ docs/RemainingWaypoint.md
 docs/Results.md
 docs/RoadAccess.md
 docs/RoadAhead.md
+docs/RouteOptions.md
 docs/RouteRequest.md
 docs/RouteResponse.md
 docs/RoutingAPI.md
@@ -94,6 +95,7 @@ docs/ScheduleEvent.md
 docs/ScheduleReport.md
 docs/ScheduleType.md
 docs/ScheduleViolationType.md
+docs/SpeedByRoadCategory.md
 docs/TimeInterval.md
 docs/Toll.md
 docs/TollCosts.md
@@ -201,6 +203,7 @@ model_remaining_waypoint.go
 model_results.go
 model_road_access.go
 model_road_ahead.go
+model_route_options.go
 model_route_request.go
 model_route_response.go
 model_routing_mode.go
@@ -208,6 +211,7 @@ model_schedule_event.go
 model_schedule_report.go
 model_schedule_type.go
 model_schedule_violation_type.go
+model_speed_by_road_category.go
 model_time_interval.go
 model_toll.go
 model_toll_costs.go

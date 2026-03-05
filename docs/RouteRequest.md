@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Waypoints** | Pointer to [**[]Waypoint**](Waypoint.md) | The list of waypoints the route will be calculated for. At least two waypoints are necessary, a maximum number may apply according to your subscription. The first waypoint is the start and the last is the destination of the route. Additional intermediate waypoints are possible.  Each waypoint must either have latitude and longitude or one of the representations combinedTransport, address or place. | [optional] 
 **RouteId** | Pointer to **string** | Instead of the list of waypoints, a **routeId** from a previously calculated route or a matched track can be entered. See [here](./concepts/route-ids) for more information. | [optional] 
 **Driver** | Pointer to [**DriverBody**](DriverBody.md) |  | [optional] 
+**RouteOptions** | Pointer to [**RouteOptions**](RouteOptions.md) |  | [optional] 
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetDriver sets Driver field to given value.
 `func (o *RouteRequest) HasDriver() bool`
 
 HasDriver returns a boolean if a field has been set.
+
+### GetRouteOptions
+
+`func (o *RouteRequest) GetRouteOptions() RouteOptions`
+
+GetRouteOptions returns the RouteOptions field if non-nil, zero value otherwise.
+
+### GetRouteOptionsOk
+
+`func (o *RouteRequest) GetRouteOptionsOk() (*RouteOptions, bool)`
+
+GetRouteOptionsOk returns a tuple with the RouteOptions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRouteOptions
+
+`func (o *RouteRequest) SetRouteOptions(v RouteOptions)`
+
+SetRouteOptions sets RouteOptions field to given value.
+
+### HasRouteOptions
+
+`func (o *RouteRequest) HasRouteOptions() bool`
+
+HasRouteOptions returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

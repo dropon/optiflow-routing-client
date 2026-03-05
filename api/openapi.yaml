@@ -6,7 +6,7 @@ info:
     \ into account vehicle-specific restrictions, traffic situations, toll, emissions,\
     \ drivers' working hours, service times and opening intervals."
   title: Routing
-  version: "1.36"
+  version: "1.37"
 servers:
 - url: https://api.myptv.com/routing/v1
 security:
@@ -45,16 +45,16 @@ paths:
           \ will be reached at the side of street on which it is located.\n This is\
           \ useful to prevent the driver from crossing the street to actually reach\
           \ the location represented by this waypoint.\n * `radius=<distance>`, influences\
-          \ the route course, so that the route passes an area defined by the given\
+          \ the route path, so that the route passes an area defined by the given\
           \ radius [m] (integer value).\n This waypoint will not appear as a waypoint\
           \ event in the response and may not be used as start and destination.\n\
           \ `radius` must be > 0 and is not compatible with any other attribute on\
           \ the same waypoint except for `name`.\n We will refer to this type of waypoint\
           \ as a _route-manipulation waypoint_.\n * `name=<name of waypoint>`, is\
           \ an identifier to reference this waypoint in the response.\n * In order\
-          \ to influence the route course so that the route uses a specific ferry\
-          \ or railway connection between two locations the waypoint is formatted\
-          \ as follows:\n `combinedTransport=<lat>,<lon>,<lat>,<lon>`. Both locations\
+          \ to influence the route path so that the route uses a specific ferry or\
+          \ railway connection between two locations the waypoint is formatted as\
+          \ follows:\n `combinedTransport=<lat>,<lon>,<lat>,<lon>`. Both locations\
           \ will be matched to the nearest ports looking for a direct connection.\n\
           \ If no connection can be found, this waypoint will be ignored, and the\
           \ warning _ROUTING_COMBINED_TRANSPORT_WAYPOINT_IGNORED_ will be returned.\n\
@@ -2918,6 +2918,11 @@ components:
             * `GENERAL_RESOURCE_NOT_FOUND` - A requested resource does not exist.
               * `message` - An additional error message.
 
+            **HTTP status code: 410**
+            * `GENERAL_GONE` - A requested resource is not longer available.
+              * `message` - An additional error message.
+              * `hint` - A hint how to solve the problem.
+
             **HTTP status code: 429**
             * `GENERAL_RATE_LIMIT_EXCEEDED` - The rate limit is exceeded.
 
@@ -3021,7 +3026,7 @@ components:
               * `attribute` - The first conflicting emissions standard.
               * `conflictingAttributes` - The list of other conflicting emissions standards.
             * `ROUTING_START_AND_ARRIVAL_TIME_MUTUALLY_EXCLUSIVE` - **options[startTime]** and **options[arrivalTime]** are mutually exclusive. - _The **parameter** remains empty._
-            * `ROUTING_ESTIMATED_DISTANCE_TOO_LONG` - The distance of the route (estimated by air-line) for the selected vehicle is too long. - _The **parameter** remains empty._
+            * `ROUTING_ESTIMATED_DISTANCE_TOO_LONG` - The distance of the whole route or one leg (estimated by air-line) for the selected vehicle and parameterization is too long. - _The **parameter** contains 'route' or 'leg'._
               * `distance` - The estimated distance (integer).
               * `limit` - The maximum allowable distance (integer).
             * `ROUTING_PARAMETER_CONFLICT` - Two parameters are in conflict with each other.
@@ -3197,11 +3202,12 @@ components:
             \ - The list of connections available for the start coordinates (array\
             \ of strings). This will only be returned if connections for the start\
             \ coordinates are found, but none match the destination coordinates.\n\
-            * `ROUTING_COMBINED_TRANSPORT_WAYPOINT_AMBIGUOUS` - The combined-transport\
-            \ waypoint was ambiguous.\n  * `parameter` - The waypoint parameter.\n\
-            \  * `usedConnection` - The connection used for this route.\n  * `availableConnections`\
-            \ - The list of connections available for the combined-transport waypoint\
-            \ (array of strings).\n* `ROUTING_WAYPOINTS_DONT_MATCH_PROFILE_REGION`\
+            * `ROUTING_COMBINED_TRANSPORT_WAYPOINT_AMBIGUOUS` - Multiple combined-transport\
+            \ connections were found. The closest connection was selected, for a sorted\
+            \ list by distance see **availableConnections**.\n  * `parameter` - The\
+            \ waypoint parameter.\n  * `usedConnection` - The connection used for\
+            \ this route.\n  * `availableConnections` - The list of connections available\
+            \ for the combined-transport waypoint (array of strings).\n* `ROUTING_WAYPOINTS_DONT_MATCH_PROFILE_REGION`\
             \ - The **waypoints** or the **routeId** do not match the region of the\
             \ **profile** specified in the request.\n  * `waypointsRegion` - The region\
             \ of the **waypoints** or **routeId**.\n  * `profileRegion` - The region\
@@ -4050,10 +4056,10 @@ components:
           type: string
         blockIntersectingRoads:
           description: "Pipe-separated list of polylines.  \nRoads and combined transports\
-            \ that intersect the given polylines will be considered as blocked.\n\
-            Each list element is a polyline. Each point is a coordinate of latitude\
-            \ and longitude. Coordinates and points are separated by a comma.\nFormat:\
-            \ `<poly1_lat1>,<poly1_lon1>,...,<poly1_latN>,<poly1_lonN>|<poly2_lat1>,<poly2_lon1>,...,<poly2_latN>,<poly2_lonN>|...`\
+            \ that intersect the given polylines will be considered as prohibited\
+            \ and will not be used in the route calculation.\nEach list element is\
+            \ a polyline. Each point is a coordinate of latitude and longitude. Coordinates\
+            \ and points are separated by a comma.\nFormat: `<poly1_lat1>,<poly1_lon1>,...,<poly1_latN>,<poly1_lonN>|<poly2_lat1>,<poly2_lon1>,...,<poly2_latN>,<poly2_lonN>|...`\
             \  \nNotes:\n* Be aware of the URL length restrictions.\n* If there is\
             \ no other route connecting two waypoints the will be reported as violated\
             \ and correspondingly violation events with type **BLOCKED_ROAD_BY_INTERSECTION**\
@@ -4155,10 +4161,14 @@ components:
       - ISO14083_2023
       - FRENCH_CO2E_DECREE_2017_639
     VehicleParametersAtWaypoint:
-      description: |
-        The vehicle parameters that change at a waypoint. A vehicle parameter specified at a waypoint overrides the
-        setting from the **profile** and **vehicle**. It is valid until the end of the route unless it is changed again
-        at a subsequent waypoint.
+      description: "The vehicle parameters that change at a waypoint. A vehicle parameter\
+        \ specified at a waypoint overrides the\nsetting from the **profile** and\
+        \ **vehicle**. It is valid until the end of the route unless it is changed\
+        \ again\nat a subsequent waypoint.\n\nWhen requesting the _ROUTE_ID_, these\
+        \ vehicle parameters are also taken into account during route recalculation.\
+        \ \nTo recalculate a route with different vehicle parameters, we recommend\
+        \ not specifying any vehicle parameters at the waypoints, \nas this may lead\
+        \ to unexpected toll or emission results.\n"
       example:
         averageElectricityConsumption: 115
         loadWeight: 25000
@@ -5745,7 +5755,8 @@ components:
         \ the provided cost parameters and the vehicles properties like its consumption.\n\
         Furthermore, toll costs are integrated as well. See [here](./concepts/monetary-costs)\
         \ for more information.\n\nThis parameter will be ignored, if a **routeId**\
-        \ is specified."
+        \ is specified. \nFor non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_,\
+        \ the parameter will be ignored as well."
       enum:
       - FAST
       - SHORT
@@ -6245,10 +6256,10 @@ components:
           type: string
         blockIntersectingRoads:
           description: "Pipe-separated list of polylines.  \nRoads and combined transports\
-            \ that intersect the given polylines will be considered as blocked.\n\
-            Each list element is a polyline. Each point is a coordinate of latitude\
-            \ and longitude. Coordinates and points are separated by a comma.\nFormat:\
-            \ `<poly1_lat1>,<poly1_lon1>,...,<poly1_latN>,<poly1_lonN>|<poly2_lat1>,<poly2_lon1>,...,<poly2_latN>,<poly2_lonN>|...`\
+            \ that intersect the given polylines will be considered as prohibited\
+            \ and will not be used in the route calculation.\nEach list element is\
+            \ a polyline. Each point is a coordinate of latitude and longitude. Coordinates\
+            \ and points are separated by a comma.\nFormat: `<poly1_lat1>,<poly1_lon1>,...,<poly1_latN>,<poly1_lonN>|<poly2_lat1>,<poly2_lon1>,...,<poly2_latN>,<poly2_lonN>|...`\
             \  \nNotes:\n* Be aware of the URL length restrictions.\n* If there is\
             \ no other route connecting two waypoints the will be reported as violated\
             \ and correspondingly violation events with type **BLOCKED_ROAD_BY_INTERSECTION**\
@@ -6315,6 +6326,20 @@ components:
             accumulatedDrivingTimeSinceLastBreak: 0
             accumulatedTravelTimeSinceLastDailyRest: 0
           useTimeOnCombinedTransportForRecreation: false
+        routeOptions:
+          timePreferenceOverDistance: 11
+          speedsByRoadCategory:
+          - minimumSpeed: 174
+            maximumSpeed: 190
+          - minimumSpeed: 174
+            maximumSpeed: 190
+          - minimumSpeed: 174
+            maximumSpeed: 190
+          - minimumSpeed: 174
+            maximumSpeed: 190
+          - minimumSpeed: 174
+            maximumSpeed: 190
+          maximumSpeed: 1
         waypoints:
         - onRoad:
             evParameters:
@@ -6541,6 +6566,8 @@ components:
           type: string
         driver:
           $ref: "#/components/schemas/DriverBody"
+        routeOptions:
+          $ref: "#/components/schemas/RouteOptions"
       type: object
     Waypoint:
       example:
@@ -6878,7 +6905,7 @@ components:
       type: object
     ManipulateRouteWaypoint:
       description: |-
-        A _manipulate-route waypoint_ will not actually be reached but it influences the route course, so that the route passes an area defined by the given radius.
+        A _manipulate-route waypoint_ will not actually be reached but it influences the route path, so that the route passes an area defined by the given radius.
         This waypoint will not appear as a waypoint event in the response and may not be used as start and destination.
       example:
         latitude: 49.480301
@@ -7011,9 +7038,9 @@ components:
       - start
       type: object
     CombinedTransport:
-      description: "Influences the route course, so that the route uses a ferry or\
-        \ railway connection between the given locations. Both locations will be matched\
-        \ to the nearest ports looking for a direct connection. If no connection can\
+      description: "Influences the route path, so that the route uses a ferry or railway\
+        \ connection between the given locations. Both locations will be matched to\
+        \ the nearest ports looking for a direct connection. If no connection can\
         \ be found, this waypoint will be ignored, and the warning _ROUTING_COMBINED_TRANSPORT_WAYPOINT_IGNORED_\
         \ will be returned. If more than one connection is found, the best one will\
         \ be used, and the alternative connections will be returned in the response\
@@ -7217,11 +7244,122 @@ components:
       required:
       - lastTimeTheDriverWorked
       type: object
+    RouteOptions:
+      description: |-
+        Routing-relevant options which control the route path in detail. These parameters can be specified in addition to those in **options** and will override them.
+        The default values depend on the **profile** and can be retrieved from the Data API.
+      example:
+        timePreferenceOverDistance: 11
+        speedsByRoadCategory:
+        - minimumSpeed: 174
+          maximumSpeed: 190
+        - minimumSpeed: 174
+          maximumSpeed: 190
+        - minimumSpeed: 174
+          maximumSpeed: 190
+        - minimumSpeed: 174
+          maximumSpeed: 190
+        - minimumSpeed: 174
+          maximumSpeed: 190
+        maximumSpeed: 1
+      properties:
+        maximumSpeed:
+          description: |-
+            The maximum speed of the vehicle [km/h]. The speeds for calculating the driving times on all roads
+            will be limited to this value.
+            See [here](./concepts/speeds) for more information.
+            Do not specify **options[maximumSpeed]**, if this parameter is given.
+          format: int32
+          minimum: 1
+          type: integer
+        speedsByRoadCategory:
+          description: "The speeds used to calculate the driving times by road category.\
+            \ For each road category a minimum and a maximum speed have to be specified.\n\
+            The first array element represents motorways, the last one pedestrian\
+            \ and cycle paths, see [here](../data-api/concepts/road-categories)\n\
+            for more information on road categories.\n\nThe speed actually used for\
+            \ a road segment depends on its road category and a speed category defined\
+            \ in the map data\nand is calculated by linear interpolation between the\
+            \ minimum and maximum speed.\n\nThis parameter can be specified only,\
+            \ if **options[trafficMode]** is _AVERAGE_ and neither **options[startTime]**\
+            \ \nnor **options[arrivalTime]** is specified. Otherwise, an error will\
+            \ be returned.\n\nSee [here](./concepts/speeds) for more information,\
+            \ in particular on the influence of further speed-related parameters\n\
+            such as **options[maximumSpeed]**, **options[speedFactor]** and relative\
+            \ speeds applied by custom road attribute scenarios."
+          items:
+            $ref: "#/components/schemas/SpeedByRoadCategory"
+          maxItems: 8
+          minItems: 8
+          type: array
+        timePreferenceOverDistance:
+          description: |-
+            Specifies the weighting between travel time and travel distance when calculating a route.
+            The value defines the preference for minimizing travel time over minimizing travel distance.
+            - 0: Route is optimized purely for shortest distance.
+            - 100: Route is optimized purely for shortest travel time.
+            - 1-99: A weighted combination of travel time and distance is applied, with higher values
+                giving more importance to travel time.
+
+            For motorized profiles, values between 80 and 90 typically provide the most realistic and efficient routing behavior
+            whereas values below 30 often produce routes that are not realistically driveable. Such low values
+            are mainly useful for determining theoretical lower bounds on distance rather than for practical
+            route planning.
+
+            This parameter will be ignored, if a **routeId** is specified.
+          format: int32
+          maximum: 100
+          minimum: 0
+          type: integer
+      type: object
+    SpeedsByRoadCategory:
+      description: "The speeds used to calculate the driving times by road category.\
+        \ For each road category a minimum and a maximum speed have to be specified.\n\
+        The first array element represents motorways, the last one pedestrian and\
+        \ cycle paths, see [here](../data-api/concepts/road-categories)\nfor more\
+        \ information on road categories.\n\nThe speed actually used for a road segment\
+        \ depends on its road category and a speed category defined in the map data\n\
+        and is calculated by linear interpolation between the minimum and maximum\
+        \ speed.\n\nThis parameter can be specified only, if **options[trafficMode]**\
+        \ is _AVERAGE_ and neither **options[startTime]** \nnor **options[arrivalTime]**\
+        \ is specified. Otherwise, an error will be returned.\n\nSee [here](./concepts/speeds)\
+        \ for more information, in particular on the influence of further speed-related\
+        \ parameters\nsuch as **options[maximumSpeed]**, **options[speedFactor]**\
+        \ and relative speeds applied by custom road attribute scenarios."
+      items:
+        $ref: "#/components/schemas/SpeedByRoadCategory"
+      maxItems: 8
+      minItems: 8
+      type: array
+    SpeedByRoadCategory:
+      example:
+        minimumSpeed: 174
+        maximumSpeed: 190
+      properties:
+        minimumSpeed:
+          description: "The minimum speed of the vehicle [km/h] for roads of this\
+            \ road category. Must be less or equal to the maximum speed."
+          format: int32
+          maximum: 255
+          minimum: 1
+          type: integer
+        maximumSpeed:
+          description: "The maximum speed of the vehicle [km/h] for roads of this\
+            \ road category. Must be greater or equal to the minimum speed."
+          format: int32
+          maximum: 255
+          minimum: 1
+          type: integer
+      required:
+      - maximumSpeed
+      - minimumSpeed
+      type: object
     BlockIntersectingRoads:
       description: "Pipe-separated list of polylines.  \nRoads and combined transports\
-        \ that intersect the given polylines will be considered as blocked.\nEach\
-        \ list element is a polyline. Each point is a coordinate of latitude and longitude.\
-        \ Coordinates and points are separated by a comma.\nFormat: `<poly1_lat1>,<poly1_lon1>,...,<poly1_latN>,<poly1_lonN>|<poly2_lat1>,<poly2_lon1>,...,<poly2_latN>,<poly2_lonN>|...`\
+        \ that intersect the given polylines will be considered as prohibited and\
+        \ will not be used in the route calculation.\nEach list element is a polyline.\
+        \ Each point is a coordinate of latitude and longitude. Coordinates and points\
+        \ are separated by a comma.\nFormat: `<poly1_lat1>,<poly1_lon1>,...,<poly1_latN>,<poly1_lonN>|<poly2_lat1>,<poly2_lon1>,...,<poly2_latN>,<poly2_lonN>|...`\
         \  \nNotes:\n* Be aware of the URL length restrictions.\n* If there is no\
         \ other route connecting two waypoints the will be reported as violated and\
         \ correspondingly violation events with type **BLOCKED_ROAD_BY_INTERSECTION**\
