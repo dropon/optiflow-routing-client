@@ -6320,11 +6320,11 @@ components:
         driver:
           workingHoursPreset: EU_DRIVING_TIME_REGULATION_FOR_SINGLE_DAY
           workLogbook:
-            accumulatedDrivingTimeSinceLastDailyRest: 0
-            accumulatedWorkingTimeSinceLastBreak: 0
+            accumulatedDrivingTimeSinceLastDailyRest: 3883701
+            accumulatedWorkingTimeSinceLastBreak: 23293378
             lastTimeTheDriverWorked: 2020-12-04T06:00:00Z
-            accumulatedDrivingTimeSinceLastBreak: 0
-            accumulatedTravelTimeSinceLastDailyRest: 0
+            accumulatedDrivingTimeSinceLastBreak: 13073589
+            accumulatedTravelTimeSinceLastDailyRest: 3231322
           useTimeOnCombinedTransportForRecreation: false
         routeOptions:
           timePreferenceOverDistance: 11
@@ -6351,7 +6351,7 @@ components:
               chargingStation:
                 useServiceTimeForCharging: false
                 currentType: DIRECT
-                setupTime: 0
+                setupTime: 7260015
                 power: 0
                 kWhPrice: 0.7061401241503109
             vehicleParameters:
@@ -6372,7 +6372,7 @@ components:
             useServiceTimeForRecreation: false
             latitude: 49.480301
             matchSideOfStreet: false
-            serviceTime: 0
+            serviceTime: 2525491
             openingIntervals:
             - start: 2020-12-07T00:00:00Z
               end: 2020-12-07T01:00:00Z
@@ -6403,7 +6403,7 @@ components:
               chargingStation:
                 useServiceTimeForCharging: false
                 currentType: DIRECT
-                setupTime: 0
+                setupTime: 7260015
                 power: 0
                 kWhPrice: 0.7061401241503109
             vehicleParameters:
@@ -6427,7 +6427,7 @@ components:
             roadAcess:
               latitude: 49.480301
               longitude: 6.110667
-            serviceTime: 0
+            serviceTime: 11403659
             openingIntervals:
             - start: 2020-12-07T00:00:00Z
               end: 2020-12-07T01:00:00Z
@@ -6454,7 +6454,7 @@ components:
               chargingStation:
                 useServiceTimeForCharging: false
                 currentType: DIRECT
-                setupTime: 0
+                setupTime: 7260015
                 power: 0
                 kWhPrice: 0.7061401241503109
             vehicleParameters:
@@ -6475,7 +6475,7 @@ components:
             useServiceTimeForRecreation: false
             latitude: 49.480301
             matchSideOfStreet: false
-            serviceTime: 0
+            serviceTime: 2525491
             openingIntervals:
             - start: 2020-12-07T00:00:00Z
               end: 2020-12-07T01:00:00Z
@@ -6506,7 +6506,7 @@ components:
               chargingStation:
                 useServiceTimeForCharging: false
                 currentType: DIRECT
-                setupTime: 0
+                setupTime: 7260015
                 power: 0
                 kWhPrice: 0.7061401241503109
             vehicleParameters:
@@ -6530,7 +6530,7 @@ components:
             roadAcess:
               latitude: 49.480301
               longitude: 6.110667
-            serviceTime: 0
+            serviceTime: 11403659
             openingIntervals:
             - start: 2020-12-07T00:00:00Z
               end: 2020-12-07T01:00:00Z
@@ -6581,7 +6581,7 @@ components:
             chargingStation:
               useServiceTimeForCharging: false
               currentType: DIRECT
-              setupTime: 0
+              setupTime: 7260015
               power: 0
               kWhPrice: 0.7061401241503109
           vehicleParameters:
@@ -6602,7 +6602,7 @@ components:
           useServiceTimeForRecreation: false
           latitude: 49.480301
           matchSideOfStreet: false
-          serviceTime: 0
+          serviceTime: 2525491
           openingIntervals:
           - start: 2020-12-07T00:00:00Z
             end: 2020-12-07T01:00:00Z
@@ -6633,7 +6633,7 @@ components:
             chargingStation:
               useServiceTimeForCharging: false
               currentType: DIRECT
-              setupTime: 0
+              setupTime: 7260015
               power: 0
               kWhPrice: 0.7061401241503109
           vehicleParameters:
@@ -6657,7 +6657,7 @@ components:
           roadAcess:
             latitude: 49.480301
             longitude: 6.110667
-          serviceTime: 0
+          serviceTime: 11403659
           openingIntervals:
           - start: 2020-12-07T00:00:00Z
             end: 2020-12-07T01:00:00Z
@@ -6701,7 +6701,7 @@ components:
           chargingStation:
             useServiceTimeForCharging: false
             currentType: DIRECT
-            setupTime: 0
+            setupTime: 7260015
             power: 0
             kWhPrice: 0.7061401241503109
         vehicleParameters:
@@ -6722,7 +6722,7 @@ components:
         useServiceTimeForRecreation: false
         latitude: 49.480301
         matchSideOfStreet: false
-        serviceTime: 0
+        serviceTime: 2525491
         openingIntervals:
         - start: 2020-12-07T00:00:00Z
           end: 2020-12-07T01:00:00Z
@@ -6763,6 +6763,7 @@ components:
           description: "The service time [s] that is required at this waypoint, e.g.\
             \ for pickup or delivery."
           format: int32
+          maximum: 31536000
           minimum: 0
           type: integer
         useServiceTimeForRecreation:
@@ -6807,7 +6808,7 @@ components:
           chargingStation:
             useServiceTimeForCharging: false
             currentType: DIRECT
-            setupTime: 0
+            setupTime: 7260015
             power: 0
             kWhPrice: 0.7061401241503109
         vehicleParameters:
@@ -6831,7 +6832,7 @@ components:
         roadAcess:
           latitude: 49.480301
           longitude: 6.110667
-        serviceTime: 0
+        serviceTime: 11403659
         openingIntervals:
         - start: 2020-12-07T00:00:00Z
           end: 2020-12-07T01:00:00Z
@@ -6874,6 +6875,7 @@ components:
           description: "The service time [s] that is required at this waypoint, e.g.\
             \ for pickup or delivery."
           format: int32
+          maximum: 31536000
           minimum: 0
           type: integer
         useServiceTimeForRecreation:
@@ -6963,6 +6965,7 @@ components:
       description: "The service time [s] that is required at this waypoint, e.g. for\
         \ pickup or delivery."
       format: int32
+      maximum: 31536000
       minimum: 0
       type: integer
     UseServiceTimeForRecreation:
@@ -7158,11 +7161,11 @@ components:
       example:
         workingHoursPreset: EU_DRIVING_TIME_REGULATION_FOR_SINGLE_DAY
         workLogbook:
-          accumulatedDrivingTimeSinceLastDailyRest: 0
-          accumulatedWorkingTimeSinceLastBreak: 0
+          accumulatedDrivingTimeSinceLastDailyRest: 3883701
+          accumulatedWorkingTimeSinceLastBreak: 23293378
           lastTimeTheDriverWorked: 2020-12-04T06:00:00Z
-          accumulatedDrivingTimeSinceLastBreak: 0
-          accumulatedTravelTimeSinceLastDailyRest: 0
+          accumulatedDrivingTimeSinceLastBreak: 13073589
+          accumulatedTravelTimeSinceLastDailyRest: 3231322
         useTimeOnCombinedTransportForRecreation: false
       properties:
         workingHoursPreset:
@@ -7185,11 +7188,11 @@ components:
       description: "Defines the accumulated driving, working and travel times since\
         \ the last break or daily rest. For details see this [concept](./concepts/drivers-working-hours)."
       example:
-        accumulatedDrivingTimeSinceLastDailyRest: 0
-        accumulatedWorkingTimeSinceLastBreak: 0
+        accumulatedDrivingTimeSinceLastDailyRest: 3883701
+        accumulatedWorkingTimeSinceLastBreak: 23293378
         lastTimeTheDriverWorked: 2020-12-04T06:00:00Z
-        accumulatedDrivingTimeSinceLastBreak: 0
-        accumulatedTravelTimeSinceLastDailyRest: 0
+        accumulatedDrivingTimeSinceLastBreak: 13073589
+        accumulatedTravelTimeSinceLastDailyRest: 3231322
       properties:
         lastTimeTheDriverWorked:
           description: "The last time the driver worked formatted according to [RFC\
@@ -7207,6 +7210,7 @@ components:
             \ driving time between breaks of the **workingHoursPreset** are capped\
             \ and effectively equal to the value given by the preset.\n"
           format: int32
+          maximum: 31536000
           minimum: 0
           type: integer
         accumulatedWorkingTimeSinceLastBreak:
@@ -7218,6 +7222,7 @@ components:
             \ be smaller than **accumulatedDrivingTimeSinceLastBreak** if the value\
             \ is specified. If no other value is specified, the default value is 0.\n"
           format: int32
+          maximum: 31536000
           minimum: 0
           type: integer
         accumulatedDrivingTimeSinceLastDailyRest:
@@ -7228,6 +7233,7 @@ components:
             \ than **accumulatedDrivingTimeSinceLastBreak** if the value is specified.\
             \ If no other value is specified, the default value is 0.\n"
           format: int32
+          maximum: 31536000
           minimum: 0
           type: integer
         accumulatedTravelTimeSinceLastDailyRest:
@@ -7239,6 +7245,7 @@ components:
             \ if the values are specified. If no other value is specified, the default\
             \ value is 0.\n"
           format: int32
+          maximum: 31536000
           minimum: 0
           type: integer
       required:
@@ -7412,6 +7419,7 @@ components:
           default: 0
           description: "The service time [s] which has already been performed."
           format: int32
+          maximum: 31536000
           minimum: 0
           type: integer
       required:
@@ -7792,7 +7800,7 @@ components:
         chargingStation:
           useServiceTimeForCharging: false
           currentType: DIRECT
-          setupTime: 0
+          setupTime: 7260015
           power: 0
           kWhPrice: 0.7061401241503109
       properties:
@@ -7882,7 +7890,7 @@ components:
       example:
         useServiceTimeForCharging: false
         currentType: DIRECT
-        setupTime: 0
+        setupTime: 7260015
         power: 0
         kWhPrice: 0.7061401241503109
       properties:
@@ -7897,6 +7905,7 @@ components:
           default: 0
           description: "The time to setup the connection [s]."
           format: int32
+          maximum: 31536000
           minimum: 0
           type: integer
         kWhPrice:

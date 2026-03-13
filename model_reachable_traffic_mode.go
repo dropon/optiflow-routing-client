@@ -20,8 +20,8 @@ type ReachableTrafficMode string
 
 // List of ReachableTrafficMode
 const (
-	REALISTIC_REACHABLE_TRAFFIC_MODE ReachableTrafficMode = "REALISTIC"
-	AVERAGE_REACHABLE_TRAFFIC_MODE   ReachableTrafficMode = "AVERAGE"
+	REALISTIC ReachableTrafficMode = "REALISTIC"
+	AVERAGE ReachableTrafficMode = "AVERAGE"
 )
 
 // All allowed values of ReachableTrafficMode enum
@@ -108,3 +108,4 @@ func (v *NullableReachableTrafficMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
