@@ -15,13 +15,13 @@ import (
 	"fmt"
 )
 
-// ReachableTrafficMode Defines how to consider traffic in a reachable areas or a reachable locations calculation.  * `REALISTIC` - Uses the most realistic **travelTime** and **distance** for the selected vehicle and the  given **referenceTime** (or the current time if none **referenceTime** is specified).  Takes into account the live traffic situation such as traffic jams or road works  as well as the typical traffic situation at the time of day and the day of week of travel such as the rush-hour  on Monday morning or light traffic on Saturday evening.  * `AVERAGE` - Uses the average **travelTime** and **distance** for the selected vehicle.  If **referenceTime** is specified, the typical traffic situation for that time of day and day of week will be considered such as the rush-hour  on Monday morning or light traffic on Saturday evening.  If no **referenceTime** is specified the typical traffic situation will not be considered, and **travelTime** and **distance** are an average independent of when to travel.  See [here](./concepts/traffic-modes) for more information. This parameter will be ignored for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_.
+// ReachableTrafficMode Defines how to consider traffic in a reachable areas or a reachable locations calculation.  * `REALISTIC` - Uses the most realistic **travelTime** and **distance** for the selected vehicle and the  given **referenceTime** or the current time if **referenceTime** is not specified.  Takes into account the live traffic situation such as traffic jams or road works  as well as the typical traffic situation at the time of day and the day of week of travel such as the rush-hour  on Monday morning or light traffic on Saturday evening.  * `AVERAGE` - Uses the average **travelTime** and **distance** for the selected vehicle.  If **referenceTime** is specified, the typical traffic situation for that time of day and day of week will be considered such as the rush-hour  on Monday morning or light traffic on Saturday evening.  If no **referenceTime** is specified the typical traffic situation will not be considered, and **travelTime** and **distance** are an average independent of when to travel.  See [here](./concepts/traffic-modes) for more information. This parameter will be ignored for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_.
 type ReachableTrafficMode string
 
 // List of ReachableTrafficMode
 const (
-	REALISTIC_REACHABLE_TRAFFIC_MODE ReachableTrafficMode = "REALISTIC"
-	AVERAGE_REACHABLE_TRAFFIC_MODE   ReachableTrafficMode = "AVERAGE"
+	REALISTIC ReachableTrafficMode = "REALISTIC"
+	AVERAGE ReachableTrafficMode = "AVERAGE"
 )
 
 // All allowed values of ReachableTrafficMode enum
@@ -108,3 +108,4 @@ func (v *NullableReachableTrafficMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

@@ -3944,17 +3944,16 @@ components:
       properties:
         startTime:
           description: "Defines the start time of the route formatted according to\
-            \ [RFC 3339](https://tools.ietf.org/html/rfc3339).\nIf none of them is\
-            \ specified the current time will be used as the start time for **trafficMode**\
-            \ _REALISTIC_.\n\nIf the date-time string does not include an explicit\
-            \ offset to UTC, the time will be interpreted as the local time of the\
-            \ start waypoint.\nThe date must not be before 1970-01-01T00:00:00+00:00\
-            \ nor after 2037-12-31T23:59:59+00:00. \nThe response will contain the\
-            \ offset to UTC specified in the request or that of the start waypoint.\n\
-            For best results it should not be more than one month in the past nor\
-            \ more than six months in the future.  \nThis parameter is mutually exclusive\
-            \ with **arrivalTime** and **tollTime**.\nSee [here](./concepts/date-and-time)\
-            \ for more information on the relevance of date and time."
+            \ [RFC 3339](https://tools.ietf.org/html/rfc3339).\n\nIf the date-time\
+            \ string does not include an explicit offset to UTC, the time will be\
+            \ interpreted as the local time of the start waypoint.\nThe date must\
+            \ not be before 1970-01-01T00:00:00+00:00 nor after 2037-12-31T23:59:59+00:00.\
+            \ \nThe response will contain the offset to UTC specified in the request\
+            \ or that of the start waypoint.\nFor best results it should not be more\
+            \ than one month in the past nor more than six months in the future. \
+            \ \nThis parameter is mutually exclusive with **arrivalTime** and **tollTime**.\n\
+            See [here](./concepts/date-and-time) for more information on the relevance\
+            \ of date and time."
           example: 2020-12-04T06:00:00Z
           format: date-time
           type: string
@@ -5697,7 +5696,7 @@ components:
       description: |-
         Defines how to consider traffic in a route calculation.
          * `REALISTIC` - Returns the most realistic **travelTime** and **distance** for the selected vehicle and the
-         given **startTime** or **arrivalTime** (or the current time if none of them is specified).
+         given **startTime** or **arrivalTime** or the current time if none of them is specified.
          Takes into account the live traffic situation such as traffic jams or road works
          as well as the typical traffic situation at the time of day and the day of week of travel such as the rush-hour
          on Monday morning or light traffic on Saturday evening.
@@ -5721,7 +5720,7 @@ components:
       description: |-
         Defines how to consider traffic in a reachable areas or a reachable locations calculation.
          * `REALISTIC` - Uses the most realistic **travelTime** and **distance** for the selected vehicle and the
-         given **referenceTime** (or the current time if none **referenceTime** is specified).
+         given **referenceTime** or the current time if **referenceTime** is not specified.
          Takes into account the live traffic situation such as traffic jams or road works
          as well as the typical traffic situation at the time of day and the day of week of travel such as the rush-hour
          on Monday morning or light traffic on Saturday evening.
@@ -6225,7 +6224,6 @@ components:
         referenceTime:
           description: |-
             Defines the start time for **drivingDirection** _OUTBOUND_ or the arrival time for **drivingDirection** _INBOUND_ formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339).
-            If none of them is specified the current time will be used.
 
             If the date-time string does not include an explicit offset to UTC, the time will be interpreted as the local time of the waypoint.
             The date must not be before 1970-01-01T00:00:00+00:00 nor after 2037-12-31T23:59:59+00:00.

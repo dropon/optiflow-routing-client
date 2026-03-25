@@ -21,22 +21,22 @@ type TruckRoutes string
 // List of TruckRoutes
 const (
 	DE_LKWUEBERLSTVAUSNV TruckRoutes = "DE_LKWUEBERLSTVAUSNV"
-	NL_LZV               TruckRoutes = "NL_LZV"
-	NZ_HPMV              TruckRoutes = "NZ_HPMV"
-	SE_BK_1              TruckRoutes = "SE_BK_1"
-	SE_BK_2              TruckRoutes = "SE_BK_2"
-	SE_BK_3              TruckRoutes = "SE_BK_3"
-	SE_BK_4              TruckRoutes = "SE_BK_4"
-	US_STAA              TruckRoutes = "US_STAA"
-	US_TD                TruckRoutes = "US_TD"
-	AU_B_DOUBLE          TruckRoutes = "AU_B_DOUBLE"
-	AU_B_DOUBLE_HML      TruckRoutes = "AU_B_DOUBLE_HML"
-	AU_B_TRIPLE          TruckRoutes = "AU_B_TRIPLE"
-	AU_B_TRIPLE_HML      TruckRoutes = "AU_B_TRIPLE_HML"
-	AU_AB_TRIPLE         TruckRoutes = "AU_AB_TRIPLE"
-	AU_AB_TRIPLE_HML     TruckRoutes = "AU_AB_TRIPLE_HML"
+	NL_LZV TruckRoutes = "NL_LZV"
+	NZ_HPMV TruckRoutes = "NZ_HPMV"
+	SE_BK_1 TruckRoutes = "SE_BK_1"
+	SE_BK_2 TruckRoutes = "SE_BK_2"
+	SE_BK_3 TruckRoutes = "SE_BK_3"
+	SE_BK_4 TruckRoutes = "SE_BK_4"
+	US_STAA TruckRoutes = "US_STAA"
+	US_TD TruckRoutes = "US_TD"
+	AU_B_DOUBLE TruckRoutes = "AU_B_DOUBLE"
+	AU_B_DOUBLE_HML TruckRoutes = "AU_B_DOUBLE_HML"
+	AU_B_TRIPLE TruckRoutes = "AU_B_TRIPLE"
+	AU_B_TRIPLE_HML TruckRoutes = "AU_B_TRIPLE_HML"
+	AU_AB_TRIPLE TruckRoutes = "AU_AB_TRIPLE"
+	AU_AB_TRIPLE_HML TruckRoutes = "AU_AB_TRIPLE_HML"
 	GENERAL_TRUCK_ROUTES TruckRoutes = "GENERAL_TRUCK_ROUTES"
-	NONE_TRUCK_ROUTES    TruckRoutes = "NONE"
+	NONE TruckRoutes = "NONE"
 )
 
 // All allowed values of TruckRoutes enum
@@ -138,3 +138,4 @@ func (v *NullableTruckRoutes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
