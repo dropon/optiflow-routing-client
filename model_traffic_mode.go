@@ -15,13 +15,13 @@ import (
 	"fmt"
 )
 
-// TrafficMode Defines how to consider traffic in a route calculation.  * `REALISTIC` - Returns the most realistic **travelTime** and **distance** for the selected vehicle and the  given **startTime** or **arrivalTime** or the current time if none of them is specified.  Takes into account the live traffic situation such as traffic jams or road works  as well as the typical traffic situation at the time of day and the day of week of travel such as the rush-hour  on Monday morning or light traffic on Saturday evening.  * `AVERAGE` - Returns the average **travelTime** and **distance** for the selected vehicle.  If **startTime** or **arrivalTime** is specified, the typical traffic situation for that time of day and day of week will be considered such as the rush-hour  on Monday morning or light traffic on Saturday evening. Toll will be calculated according to that date and time.  If none of them is specified the typical traffic situation will not be considered, and **travelTime** and **distance** are an average independent of when to travel.  Toll will be calculated for an arbitrary Monday at noon.  See [here](./concepts/traffic-modes) for more information. This parameter will be ignored for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_.
+// TrafficMode Defines how to consider traffic in a route calculation.  * `REALISTIC` - Returns the most realistic **travelTime** and **distance** for the selected vehicle and the  given **startTime** or **arrivalTime** or the current time if none of them is specified.  Takes into account the live traffic situation such as traffic jams or road works  as well as the typical traffic situation at the time of day and the day of week of travel such as the rush-hour  on Monday morning or light traffic on Saturday evening.  * `AVERAGE` - Returns the average **travelTime** and **distance** for the selected vehicle.  If **startTime** or **arrivalTime** is specified, the typical traffic situation for that time of day and day of week will be considered such as the rush-hour  on Monday morning or light traffic on Saturday evening. Toll will be calculated according to that date and time.  If none of them is specified the typical traffic situation will not be considered, and **travelTime** and **distance** are an average independent of when to travel.  Tolls will be calculated based on the toll prices valid at noon on Monday of the current week, using the time zone of the start waypoint.  See [here](./concepts/traffic-modes) for more information. This parameter will be ignored for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_.
 type TrafficMode string
 
 // List of TrafficMode
 const (
-	REALISTIC_TRAFFIC_MODE TrafficMode = "REALISTIC"
-	AVERAGE_TRAFFIC_MODE   TrafficMode = "AVERAGE"
+	REALISTIC TrafficMode = "REALISTIC"
+	AVERAGE TrafficMode = "AVERAGE"
 )
 
 // All allowed values of TrafficMode enum
@@ -108,3 +108,4 @@ func (v *NullableTrafficMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

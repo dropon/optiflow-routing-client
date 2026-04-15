@@ -5704,7 +5704,7 @@ components:
          If **startTime** or **arrivalTime** is specified, the typical traffic situation for that time of day and day of week will be considered such as the rush-hour
          on Monday morning or light traffic on Saturday evening. Toll will be calculated according to that date and time.
          If none of them is specified the typical traffic situation will not be considered, and **travelTime** and **distance** are an average independent of when to travel.
-         Toll will be calculated for an arbitrary Monday at noon.
+         Tolls will be calculated based on the toll prices valid at noon on Monday of the current week, using the time zone of the start waypoint.
 
         See [here](./concepts/traffic-modes) for more information.
         This parameter will be ignored for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_.
