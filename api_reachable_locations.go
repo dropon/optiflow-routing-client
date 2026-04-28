@@ -288,7 +288,7 @@ type ApiStartAndCreateReachableLocationsRequest struct {
 	options *ReachableOptions
 }
 
-// The distance [m] or travel time [s] of the horizons, depending of the **horizonType** (limited to 100 km or 1 hours).
+// The distance [m] or travel time [s] of the horizons, depending of the **horizonType** (limited to 200 km or 2 hours from a waypoint, 50 km or 45 minutes from a route).
 func (r ApiStartAndCreateReachableLocationsRequest) Horizon(horizon int32) ApiStartAndCreateReachableLocationsRequest {
 	r.horizon = &horizon
 	return r

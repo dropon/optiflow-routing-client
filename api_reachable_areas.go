@@ -515,7 +515,7 @@ func (r ApiStartAndCreateReachableAreasRequest) Execute() (*ReachableAreasId, *h
 /*
 StartAndCreateReachableAreas Method for StartAndCreateReachableAreas
 
-Starts and creates the areas which can be reached from a waypoint or from a route, within given horizons. This type of request is recommended when the **horizons** parameter is more than 20 minutes or 25 km.
+Starts and creates the areas which can be reached from a waypoint or from a route, within given horizons (limited to 200 km or 2 hours from a waypoint, 50 km or 45 minutes from a route). This type of request is recommended when the **horizons** parameter is more than 20 minutes or 25 km.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiStartAndCreateReachableAreasRequest

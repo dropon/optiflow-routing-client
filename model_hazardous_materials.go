@@ -20,14 +20,14 @@ type HazardousMaterials string
 
 // List of HazardousMaterials
 const (
-	HAZARDOUS_TO_WATER      HazardousMaterials = "HAZARDOUS_TO_WATER"
-	EXPLOSIVE               HazardousMaterials = "EXPLOSIVE"
-	FLAMMABLE               HazardousMaterials = "FLAMMABLE"
-	RADIOACTIVE             HazardousMaterials = "RADIOACTIVE"
-	INHALATION_HAZARD       HazardousMaterials = "INHALATION_HAZARD"
-	MEDICAL_WASTE           HazardousMaterials = "MEDICAL_WASTE"
-	OTHER                   HazardousMaterials = "OTHER"
-	NONE_HAZARDOUSMATERIALS HazardousMaterials = "NONE"
+	HAZARDOUS_TO_WATER HazardousMaterials = "HAZARDOUS_TO_WATER"
+	EXPLOSIVE HazardousMaterials = "EXPLOSIVE"
+	FLAMMABLE HazardousMaterials = "FLAMMABLE"
+	RADIOACTIVE HazardousMaterials = "RADIOACTIVE"
+	INHALATION_HAZARD HazardousMaterials = "INHALATION_HAZARD"
+	MEDICAL_WASTE HazardousMaterials = "MEDICAL_WASTE"
+	OTHER HazardousMaterials = "OTHER"
+	NONE HazardousMaterials = "NONE"
 )
 
 // All allowed values of HazardousMaterials enum
@@ -120,3 +120,4 @@ func (v *NullableHazardousMaterials) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

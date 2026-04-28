@@ -955,7 +955,8 @@ paths:
       - Reachable Areas
     post:
       description: "Starts and creates the areas which can be reached from a waypoint\
-        \ or from a route, within given horizons. This type of request is recommended\
+        \ or from a route, within given horizons (limited to 200 km or 2 hours from\
+        \ a waypoint, 50 km or 45 minutes from a route). This type of request is recommended\
         \ when the **horizons** parameter is more than 20 minutes or 25 km."
       operationId: startAndCreateReachableAreas
       parameters:
@@ -1203,7 +1204,8 @@ paths:
           $ref: "#/components/schemas/Profile"
         style: form
       - description: "The distance [m] or travel time [s] of the horizons, depending\
-          \ of the **horizonType** (limited to 100 km or 1 hours)."
+          \ of the **horizonType** (limited to 200 km or 2 hours from a waypoint,\
+          \ 50 km or 45 minutes from a route)."
         explode: true
         in: query
         name: horizon
@@ -6318,7 +6320,7 @@ components:
         driver:
           workingHoursPreset: EU_DRIVING_TIME_REGULATION_FOR_SINGLE_DAY
           workLogbook:
-            accumulatedDrivingTimeSinceLastDailyRest: 3883701
+            accumulatedDrivingTimeSinceLastDailyRest: 3883700
             accumulatedWorkingTimeSinceLastBreak: 23293378
             lastTimeTheDriverWorked: 2020-12-04T06:00:00Z
             accumulatedDrivingTimeSinceLastBreak: 13073589
@@ -6761,7 +6763,7 @@ components:
           description: "The service time [s] that is required at this waypoint, e.g.\
             \ for pickup or delivery."
           format: int32
-          maximum: 31536000
+          maximum: 31535999
           minimum: 0
           type: integer
         useServiceTimeForRecreation:
@@ -6873,7 +6875,7 @@ components:
           description: "The service time [s] that is required at this waypoint, e.g.\
             \ for pickup or delivery."
           format: int32
-          maximum: 31536000
+          maximum: 31535999
           minimum: 0
           type: integer
         useServiceTimeForRecreation:
@@ -6963,7 +6965,7 @@ components:
       description: "The service time [s] that is required at this waypoint, e.g. for\
         \ pickup or delivery."
       format: int32
-      maximum: 31536000
+      maximum: 31535999
       minimum: 0
       type: integer
     UseServiceTimeForRecreation:
@@ -7159,7 +7161,7 @@ components:
       example:
         workingHoursPreset: EU_DRIVING_TIME_REGULATION_FOR_SINGLE_DAY
         workLogbook:
-          accumulatedDrivingTimeSinceLastDailyRest: 3883701
+          accumulatedDrivingTimeSinceLastDailyRest: 3883700
           accumulatedWorkingTimeSinceLastBreak: 23293378
           lastTimeTheDriverWorked: 2020-12-04T06:00:00Z
           accumulatedDrivingTimeSinceLastBreak: 13073589
@@ -7186,7 +7188,7 @@ components:
       description: "Defines the accumulated driving, working and travel times since\
         \ the last break or daily rest. For details see this [concept](./concepts/drivers-working-hours)."
       example:
-        accumulatedDrivingTimeSinceLastDailyRest: 3883701
+        accumulatedDrivingTimeSinceLastDailyRest: 3883700
         accumulatedWorkingTimeSinceLastBreak: 23293378
         lastTimeTheDriverWorked: 2020-12-04T06:00:00Z
         accumulatedDrivingTimeSinceLastBreak: 13073589
@@ -7208,7 +7210,7 @@ components:
             \ driving time between breaks of the **workingHoursPreset** are capped\
             \ and effectively equal to the value given by the preset.\n"
           format: int32
-          maximum: 31536000
+          maximum: 31535999
           minimum: 0
           type: integer
         accumulatedWorkingTimeSinceLastBreak:
@@ -7220,7 +7222,7 @@ components:
             \ be smaller than **accumulatedDrivingTimeSinceLastBreak** if the value\
             \ is specified. If no other value is specified, the default value is 0.\n"
           format: int32
-          maximum: 31536000
+          maximum: 31535999
           minimum: 0
           type: integer
         accumulatedDrivingTimeSinceLastDailyRest:
@@ -7231,7 +7233,7 @@ components:
             \ than **accumulatedDrivingTimeSinceLastBreak** if the value is specified.\
             \ If no other value is specified, the default value is 0.\n"
           format: int32
-          maximum: 31536000
+          maximum: 31535999
           minimum: 0
           type: integer
         accumulatedTravelTimeSinceLastDailyRest:
@@ -7243,7 +7245,7 @@ components:
             \ if the values are specified. If no other value is specified, the default\
             \ value is 0.\n"
           format: int32
-          maximum: 31536000
+          maximum: 31535999
           minimum: 0
           type: integer
       required:
@@ -7417,7 +7419,7 @@ components:
           default: 0
           description: "The service time [s] which has already been performed."
           format: int32
-          maximum: 31536000
+          maximum: 31535999
           minimum: 0
           type: integer
       required:
@@ -7903,7 +7905,7 @@ components:
           default: 0
           description: "The time to setup the connection [s]."
           format: int32
-          maximum: 31536000
+          maximum: 31535999
           minimum: 0
           type: integer
         kWhPrice:
