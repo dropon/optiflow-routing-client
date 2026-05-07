@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **EvReport** | Pointer to [**EvReport**](EvReport.md) |  | [optional] 
 **GuidedNavigation** | Pointer to **string** | A base64 encoded representation of the route that can be used for the [PTV Navigator](https://www.myptv.com/en/logistics-software/ptv-navigator). The base64 binary has to be decoded and saved as a text file with the extension .bcr. Requires _GUIDED_NAVIGATION_ to be requested. | [optional] 
 **MonetaryCosts** | Pointer to [**MonetaryCosts**](MonetaryCosts.md) |  | [optional] 
+**ElevationReport** | Pointer to [**ElevationReport**](ElevationReport.md) |  | [optional] 
 **Warnings** | Pointer to [**[]Warning**](Warning.md) | A list of warnings concerning the validity of the result. | [optional] 
 
 ## Methods
@@ -399,6 +400,31 @@ SetMonetaryCosts sets MonetaryCosts field to given value.
 `func (o *RouteResponse) HasMonetaryCosts() bool`
 
 HasMonetaryCosts returns a boolean if a field has been set.
+
+### GetElevationReport
+
+`func (o *RouteResponse) GetElevationReport() ElevationReport`
+
+GetElevationReport returns the ElevationReport field if non-nil, zero value otherwise.
+
+### GetElevationReportOk
+
+`func (o *RouteResponse) GetElevationReportOk() (*ElevationReport, bool)`
+
+GetElevationReportOk returns a tuple with the ElevationReport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetElevationReport
+
+`func (o *RouteResponse) SetElevationReport(v ElevationReport)`
+
+SetElevationReport sets ElevationReport field to given value.
+
+### HasElevationReport
+
+`func (o *RouteResponse) HasElevationReport() bool`
+
+HasElevationReport returns a boolean if a field has been set.
 
 ### GetWarnings
 

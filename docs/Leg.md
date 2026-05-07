@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **TollCosts** | Pointer to [**TollCosts**](TollCosts.md) |  | [optional] 
 **Polyline** | Pointer to **string** | The polyline of the leg in the format specified by **options[polylineFormat]**. | [optional] 
 **EvReport** | Pointer to [**EvReportLeg**](EvReportLeg.md) |  | [optional] 
+**ElevationReport** | Pointer to [**ElevationReport**](ElevationReport.md) |  | [optional] 
 
 ## Methods
 
@@ -190,6 +191,31 @@ SetEvReport sets EvReport field to given value.
 `func (o *Leg) HasEvReport() bool`
 
 HasEvReport returns a boolean if a field has been set.
+
+### GetElevationReport
+
+`func (o *Leg) GetElevationReport() ElevationReport`
+
+GetElevationReport returns the ElevationReport field if non-nil, zero value otherwise.
+
+### GetElevationReportOk
+
+`func (o *Leg) GetElevationReportOk() (*ElevationReport, bool)`
+
+GetElevationReportOk returns a tuple with the ElevationReport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetElevationReport
+
+`func (o *Leg) SetElevationReport(v ElevationReport)`
+
+SetElevationReport sets ElevationReport field to given value.
+
+### HasElevationReport
+
+`func (o *Leg) HasElevationReport() bool`
+
+HasElevationReport returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

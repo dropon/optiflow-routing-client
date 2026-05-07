@@ -27,6 +27,7 @@ docs/DriverBody.md
 docs/DrivingDirection.md
 docs/ElectricityPrice.md
 docs/ElectricityType.md
+docs/ElevationReport.md
 docs/EmissionCalculationMethod.md
 docs/EmissionOptions.md
 docs/EmissionStandard.md
@@ -146,6 +147,7 @@ model_driver_body.go
 model_driving_direction.go
 model_electricity_price.go
 model_electricity_type.go
+model_elevation_report.go
 model_emission_calculation_method.go
 model_emission_options.go
 model_emission_standard.go

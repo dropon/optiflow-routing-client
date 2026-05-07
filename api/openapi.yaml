@@ -6,7 +6,7 @@ info:
     \ into account vehicle-specific restrictions, traffic situations, toll, emissions,\
     \ drivers' working hours, service times and opening intervals."
   title: Routing
-  version: "1.37"
+  version: "1.38"
 servers:
 - url: https://api.myptv.com/routing/v1
 security:
@@ -178,12 +178,17 @@ paths:
           \  \n    See [here](./concepts/guided-navigation) for more information.\n\
           \ * `MONETARY_COSTS`\n    Response includes a report with monetary costs\
           \ for the route. See [here](./concepts/monetary-costs) for more information.\n\
-          \n**Toll-related results:**\n * `TOLL_COSTS`\n    Response includes the\
-          \ toll **costs** of the route.\n * `TOLL_SECTIONS`\n    Response includes\
-          \ the list of toll **sections** defined by the toll operators.\n * `TOLL_SYSTEMS`\n\
-          \    Response includes the list of toll **systems** defined by the toll\
-          \ operators.\n * `TOLL_EVENTS`\n    Response includes **events** when a\
-          \ toll road is entered, exited or a toll booth is passed.\n\n**Events:**\n\
+          \ * `ELEVATION_REPORT`\n    Response includes a report with the estimated\
+          \ total ascent and descent of the route, and for the legs, if _LEGS_ are\
+          \ included.\n    This requires elevations, which are unavailable for some\
+          \ regions beyond −60° and +60° latitude. If elevations are unavailable for\
+          \ any part of a route, a _ROUTING_ELEVATIONS_UNAVAILABLE_ warning will be\
+          \ returned.\n\n**Toll-related results:**\n * `TOLL_COSTS`\n    Response\
+          \ includes the toll **costs** of the route.\n * `TOLL_SECTIONS`\n    Response\
+          \ includes the list of toll **sections** defined by the toll operators.\n\
+          \ * `TOLL_SYSTEMS`\n    Response includes the list of toll **systems** defined\
+          \ by the toll operators.\n * `TOLL_EVENTS`\n    Response includes **events**\
+          \ when a toll road is entered, exited or a toll booth is passed.\n\n**Events:**\n\
           \ * `MANEUVER_EVENTS`\n    Response includes **events** for a **maneuver**\
           \ when the driver has to take an action, e.g. turn left or right.\n * `BORDER_EVENTS`\n\
           \    Response includes **events** when a **border** of a country or subdivision\
@@ -271,8 +276,11 @@ paths:
           \ * `EV_REPORT`\n    Response includes a report with detailed electricity\
           \ consumption for electric vehicles for the route and, if they are requested,\
           \ for legs. This is only available for concrete models of electric vehicles\
-          \ but not for general routing profiles (see documentation of **profile**).\
-          \ This result is in a preview state, the API is stable, feature changes\
+          \ but not for general routing profiles (see documentation of **profile**).\n\
+          \    This requires elevations, which are unavailable for some regions beyond\
+          \ −60° and +60° latitude. If elevations are unavailable for any part of\
+          \ a route, a _ROUTING_ELEVATIONS_UNAVAILABLE_ warning will be returned.\n\
+          \    This result is in a preview state, the API is stable, feature changes\
           \ could be introduced in future.\n * `EV_STATUS_EVENTS`\n    Response includes\
           \ events reporting the electricity consumption along the route in more detail.\
           \ This is only available for concrete models of electric vehicles but not\
@@ -444,12 +452,17 @@ paths:
           \  \n    See [here](./concepts/guided-navigation) for more information.\n\
           \ * `MONETARY_COSTS`\n    Response includes a report with monetary costs\
           \ for the route. See [here](./concepts/monetary-costs) for more information.\n\
-          \n**Toll-related results:**\n * `TOLL_COSTS`\n    Response includes the\
-          \ toll **costs** of the route.\n * `TOLL_SECTIONS`\n    Response includes\
-          \ the list of toll **sections** defined by the toll operators.\n * `TOLL_SYSTEMS`\n\
-          \    Response includes the list of toll **systems** defined by the toll\
-          \ operators.\n * `TOLL_EVENTS`\n    Response includes **events** when a\
-          \ toll road is entered, exited or a toll booth is passed.\n\n**Events:**\n\
+          \ * `ELEVATION_REPORT`\n    Response includes a report with the estimated\
+          \ total ascent and descent of the route, and for the legs, if _LEGS_ are\
+          \ included.\n    This requires elevations, which are unavailable for some\
+          \ regions beyond −60° and +60° latitude. If elevations are unavailable for\
+          \ any part of a route, a _ROUTING_ELEVATIONS_UNAVAILABLE_ warning will be\
+          \ returned.\n\n**Toll-related results:**\n * `TOLL_COSTS`\n    Response\
+          \ includes the toll **costs** of the route.\n * `TOLL_SECTIONS`\n    Response\
+          \ includes the list of toll **sections** defined by the toll operators.\n\
+          \ * `TOLL_SYSTEMS`\n    Response includes the list of toll **systems** defined\
+          \ by the toll operators.\n * `TOLL_EVENTS`\n    Response includes **events**\
+          \ when a toll road is entered, exited or a toll booth is passed.\n\n**Events:**\n\
           \ * `MANEUVER_EVENTS`\n    Response includes **events** for a **maneuver**\
           \ when the driver has to take an action, e.g. turn left or right.\n * `BORDER_EVENTS`\n\
           \    Response includes **events** when a **border** of a country or subdivision\
@@ -537,8 +550,11 @@ paths:
           \ * `EV_REPORT`\n    Response includes a report with detailed electricity\
           \ consumption for electric vehicles for the route and, if they are requested,\
           \ for legs. This is only available for concrete models of electric vehicles\
-          \ but not for general routing profiles (see documentation of **profile**).\
-          \ This result is in a preview state, the API is stable, feature changes\
+          \ but not for general routing profiles (see documentation of **profile**).\n\
+          \    This requires elevations, which are unavailable for some regions beyond\
+          \ −60° and +60° latitude. If elevations are unavailable for any part of\
+          \ a route, a _ROUTING_ELEVATIONS_UNAVAILABLE_ warning will be returned.\n\
+          \    This result is in a preview state, the API is stable, feature changes\
           \ could be introduced in future.\n * `EV_STATUS_EVENTS`\n    Response includes\
           \ events reporting the electricity consumption along the route in more detail.\
           \ This is only available for concrete models of electric vehicles but not\
@@ -630,12 +646,17 @@ paths:
           \  \n    See [here](./concepts/guided-navigation) for more information.\n\
           \ * `MONETARY_COSTS`\n    Response includes a report with monetary costs\
           \ for the route. See [here](./concepts/monetary-costs) for more information.\n\
-          \n**Toll-related results:**\n * `TOLL_COSTS`\n    Response includes the\
-          \ toll **costs** of the route.\n * `TOLL_SECTIONS`\n    Response includes\
-          \ the list of toll **sections** defined by the toll operators.\n * `TOLL_SYSTEMS`\n\
-          \    Response includes the list of toll **systems** defined by the toll\
-          \ operators.\n * `TOLL_EVENTS`\n    Response includes **events** when a\
-          \ toll road is entered, exited or a toll booth is passed.\n\n**Events:**\n\
+          \ * `ELEVATION_REPORT`\n    Response includes a report with the estimated\
+          \ total ascent and descent of the route, and for the legs, if _LEGS_ are\
+          \ included.\n    This requires elevations, which are unavailable for some\
+          \ regions beyond −60° and +60° latitude. If elevations are unavailable for\
+          \ any part of a route, a _ROUTING_ELEVATIONS_UNAVAILABLE_ warning will be\
+          \ returned.\n\n**Toll-related results:**\n * `TOLL_COSTS`\n    Response\
+          \ includes the toll **costs** of the route.\n * `TOLL_SECTIONS`\n    Response\
+          \ includes the list of toll **sections** defined by the toll operators.\n\
+          \ * `TOLL_SYSTEMS`\n    Response includes the list of toll **systems** defined\
+          \ by the toll operators.\n * `TOLL_EVENTS`\n    Response includes **events**\
+          \ when a toll road is entered, exited or a toll booth is passed.\n\n**Events:**\n\
           \ * `MANEUVER_EVENTS`\n    Response includes **events** for a **maneuver**\
           \ when the driver has to take an action, e.g. turn left or right.\n * `BORDER_EVENTS`\n\
           \    Response includes **events** when a **border** of a country or subdivision\
@@ -723,8 +744,11 @@ paths:
           \ * `EV_REPORT`\n    Response includes a report with detailed electricity\
           \ consumption for electric vehicles for the route and, if they are requested,\
           \ for legs. This is only available for concrete models of electric vehicles\
-          \ but not for general routing profiles (see documentation of **profile**).\
-          \ This result is in a preview state, the API is stable, feature changes\
+          \ but not for general routing profiles (see documentation of **profile**).\n\
+          \    This requires elevations, which are unavailable for some regions beyond\
+          \ −60° and +60° latitude. If elevations are unavailable for any part of\
+          \ a route, a _ROUTING_ELEVATIONS_UNAVAILABLE_ warning will be returned.\n\
+          \    This result is in a preview state, the API is stable, feature changes\
           \ could be introduced in future.\n * `EV_STATUS_EVENTS`\n    Response includes\
           \ events reporting the electricity consumption along the route in more detail.\
           \ This is only available for concrete models of electric vehicles but not\
@@ -1583,7 +1607,12 @@ components:
         \  \n    See [here](./concepts/guided-navigation) for more information.\n\
         \ * `MONETARY_COSTS`\n    Response includes a report with monetary costs for\
         \ the route. See [here](./concepts/monetary-costs) for more information.\n\
-        \n**Toll-related results:**\n * `TOLL_COSTS`\n    Response includes the toll\
+        \ * `ELEVATION_REPORT`\n    Response includes a report with the estimated\
+        \ total ascent and descent of the route, and for the legs, if _LEGS_ are included.\n\
+        \    This requires elevations, which are unavailable for some regions beyond\
+        \ −60° and +60° latitude. If elevations are unavailable for any part of a\
+        \ route, a _ROUTING_ELEVATIONS_UNAVAILABLE_ warning will be returned.\n\n\
+        **Toll-related results:**\n * `TOLL_COSTS`\n    Response includes the toll\
         \ **costs** of the route.\n * `TOLL_SECTIONS`\n    Response includes the list\
         \ of toll **sections** defined by the toll operators.\n * `TOLL_SYSTEMS`\n\
         \    Response includes the list of toll **systems** defined by the toll operators.\n\
@@ -1674,8 +1703,11 @@ components:
         \ * `EV_REPORT`\n    Response includes a report with detailed electricity\
         \ consumption for electric vehicles for the route and, if they are requested,\
         \ for legs. This is only available for concrete models of electric vehicles\
-        \ but not for general routing profiles (see documentation of **profile**).\
-        \ This result is in a preview state, the API is stable, feature changes could\
+        \ but not for general routing profiles (see documentation of **profile**).\n\
+        \    This requires elevations, which are unavailable for some regions beyond\
+        \ −60° and +60° latitude. If elevations are unavailable for any part of a\
+        \ route, a _ROUTING_ELEVATIONS_UNAVAILABLE_ warning will be returned.\n  \
+        \  This result is in a preview state, the API is stable, feature changes could\
         \ be introduced in future.\n * `EV_STATUS_EVENTS`\n    Response includes events\
         \ reporting the electricity consumption along the route in more detail. This\
         \ is only available for concrete models of electric vehicles but not for general\
@@ -2835,6 +2867,7 @@ components:
       - SCHEDULE_REPORT
       - GUIDED_NAVIGATION
       - MONETARY_COSTS
+      - ELEVATION_REPORT
       - EV_REPORT
       - EV_STATUS_EVENTS
       - EV_STATUS_EVENTS_POLYLINE
@@ -2874,6 +2907,7 @@ components:
       - SCHEDULE_REPORT
       - GUIDED_NAVIGATION
       - MONETARY_COSTS
+      - ELEVATION_REPORT
       - EV_REPORT
       - EV_STATUS_EVENTS
       - EV_STATUS_EVENTS_POLYLINE
@@ -3260,28 +3294,28 @@ components:
         \ of a greenhouse gas to carbon\ndioxide according to [ISO 14064-1:2006](https://en.wikipedia.org/wiki/ISO_14064)."
       example:
         iso14083_2022:
-          co2eTankToWheel: 0.3353193347011243
-          co2eWellToWheel: 0.30937452626664474
-          electricityConsumption: 0.6704019297950036
-          energyUseTankToWheel: 0.7143538047012307
-          fuelConsumption: 0.5944895607614016
-          energyUseWellToWheel: 0.08851374739011653
+          co2eTankToWheel: 0.7143538047012307
+          co2eWellToWheel: 0.08851374739011653
+          electricityConsumption: 0.30937452626664474
+          energyUseTankToWheel: 0.7058770351582356
+          fuelConsumption: 0.3353193347011243
+          energyUseWellToWheel: 0.6519180951018382
         iso14083_2023:
-          co2eTankToWheel: 0.010263654006109402
-          co2eWellToWheel: 0.46523964329332457
-          electricityConsumption: 0.6519180951018382
-          energyUseTankToWheel: 0.8969578798196912
-          fuelConsumption: 0.7058770351582356
-          energyUseWellToWheel: 0.7740351818741174
+          co2eTankToWheel: 0.8969578798196912
+          co2eWellToWheel: 0.7740351818741174
+          electricityConsumption: 0.46523964329332457
+          energyUseTankToWheel: 0.30205796992916245
+          fuelConsumption: 0.010263654006109402
+          energyUseWellToWheel: 0.3057610024104934
         frenchCO2eDecree2017_639:
-          co2eWellToWheel: 0.30205796992916245
-          co2eTankToWheel: 0.3057610024104934
+          co2eWellToWheel: 0.704836565559697
+          co2eTankToWheel: 0.5533258397034986
         en16258_2012:
-          co2eTankToWheel: 0.1284659006116532
-          co2eWellToWheel: 0.288416212666878
-          energyUseTankToWheel: 0.6778324963048014
-          fuelConsumption: 0.6965117697638845
-          energyUseWellToWheel: 0.6878052220127876
+          co2eTankToWheel: 0.6778324963048014
+          co2eWellToWheel: 0.6878052220127876
+          energyUseTankToWheel: 0.5944895607614016
+          fuelConsumption: 0.288416212666878
+          energyUseWellToWheel: 0.6704019297950036
       properties:
         en16258_2012:
           $ref: "#/components/schemas/Emissions_EN16258_2012"
@@ -3295,11 +3329,11 @@ components:
     Emissions_EN16258_2012:
       description: Emissions according to EN16258 from 2012 (a.k.a. CEN standard).
       example:
-        co2eTankToWheel: 0.1284659006116532
-        co2eWellToWheel: 0.288416212666878
-        energyUseTankToWheel: 0.6778324963048014
-        fuelConsumption: 0.6965117697638845
-        energyUseWellToWheel: 0.6878052220127876
+        co2eTankToWheel: 0.6778324963048014
+        co2eWellToWheel: 0.6878052220127876
+        energyUseTankToWheel: 0.5944895607614016
+        fuelConsumption: 0.288416212666878
+        energyUseWellToWheel: 0.6704019297950036
       properties:
         fuelConsumption:
           description: "The total fuel consumption [kg]."
@@ -3336,12 +3370,12 @@ components:
     Emissions_ISO14083_2022:
       description: Emissions according to the draft version of ISO 14083:2023.
       example:
-        co2eTankToWheel: 0.3353193347011243
-        co2eWellToWheel: 0.30937452626664474
-        electricityConsumption: 0.6704019297950036
-        energyUseTankToWheel: 0.7143538047012307
-        fuelConsumption: 0.5944895607614016
-        energyUseWellToWheel: 0.08851374739011653
+        co2eTankToWheel: 0.7143538047012307
+        co2eWellToWheel: 0.08851374739011653
+        electricityConsumption: 0.30937452626664474
+        energyUseTankToWheel: 0.7058770351582356
+        fuelConsumption: 0.3353193347011243
+        energyUseWellToWheel: 0.6519180951018382
       properties:
         fuelConsumption:
           description: "The total conventional fuel consumption [kg]."
@@ -3385,12 +3419,12 @@ components:
     Emissions_ISO14083_2023:
       description: Emissions according to ISO 14083:2023 (a.k.a. ISO standard).
       example:
-        co2eTankToWheel: 0.010263654006109402
-        co2eWellToWheel: 0.46523964329332457
-        electricityConsumption: 0.6519180951018382
-        energyUseTankToWheel: 0.8969578798196912
-        fuelConsumption: 0.7058770351582356
-        energyUseWellToWheel: 0.7740351818741174
+        co2eTankToWheel: 0.8969578798196912
+        co2eWellToWheel: 0.7740351818741174
+        electricityConsumption: 0.46523964329332457
+        energyUseTankToWheel: 0.30205796992916245
+        fuelConsumption: 0.010263654006109402
+        energyUseWellToWheel: 0.3057610024104934
       properties:
         fuelConsumption:
           description: "The total conventional fuel consumption [kg]."
@@ -3434,8 +3468,8 @@ components:
     Emissions_French_CO2e_Decree_2017_639:
       description: Emissions according to the French CO2E decree from 2017.
       example:
-        co2eWellToWheel: 0.30205796992916245
-        co2eTankToWheel: 0.3057610024104934
+        co2eWellToWheel: 0.704836565559697
+        co2eTankToWheel: 0.5533258397034986
       properties:
         co2eWellToWheel:
           description: "The amount of emitted CO2e from well to wheel [kg]."
@@ -3468,6 +3502,9 @@ components:
             windSpeed: 0
         distance: 1422
         trafficDelay: 0
+        elevationReport:
+          descent: 0
+          ascent: 0
         tollCosts:
           convertedPrice: ""
           countries:
@@ -3528,6 +3565,8 @@ components:
           type: string
         evReport:
           $ref: "#/components/schemas/EvReportLeg"
+        elevationReport:
+          $ref: "#/components/schemas/ElevationReport"
       required:
       - distance
       - travelTime
@@ -3549,11 +3588,11 @@ components:
         roundaboutExit: 0
         combinedTransportName: combinedTransportName
         description: description
-        absoluteDirection: 265
+        absoluteDirection: 36
         crossingRoadName: crossingRoadName
         type: START
         directionSignText: directionSignText
-        relativeDirection: -30
+        relativeDirection: -135
         exitNumber: exitNumber
         exitName: exitName
       properties:
@@ -3770,7 +3809,7 @@ components:
           name: name
           index: 0
         travelTimeFromStart: 56
-        utcOffset: 731
+        utcOffset: -403
         deliveryOnly:
           accessType: null
           relatedEventIndex: 0
@@ -3779,12 +3818,12 @@ components:
           cost:
             price: 12.91
             currency: EUR
-          electricityCharged: 0.6438423552598547
+          electricityCharged: 0.6965117697638845
           chargingTime: 1
           percentageCharged: 1
         latitude: 49.254878
         evStatus:
-          electricityConsumption: 8.762042012749001
+          electricityConsumption: 6.438423552598547
           batteryStateOfCharge: 58
           polyline: polyline
         toll:
@@ -3793,7 +3832,7 @@ components:
           displayName: displayName
           relatedEventIndex: 0
         utcOffsetChange:
-          utcOffset: 443
+          utcOffset: 54
         maneuver:
           roadAhead:
             number: number
@@ -3802,11 +3841,11 @@ components:
           roundaboutExit: 0
           combinedTransportName: combinedTransportName
           description: description
-          absoluteDirection: 265
+          absoluteDirection: 36
           crossingRoadName: crossingRoadName
           type: START
           directionSignText: directionSignText
-          relativeDirection: -30
+          relativeDirection: -135
           exitNumber: exitNumber
           exitName: exitName
         schedule:
@@ -3831,10 +3870,10 @@ components:
           type: PROHIBITED
           violatedVehicleProperties:
           - property: property
-            limit: 1
+            limit: 6
             value: value
           - property: property
-            limit: 1
+            limit: 6
             value: value
           polyline: polyline
         startsAt: 2020-04-06T06:00:00Z
@@ -3846,7 +3885,7 @@ components:
         distanceFromStart: 1422
         traffic:
           accessType: null
-          delay: 5
+          delay: 9
           relatedEventIndex: 0
           description: description
           language: language
@@ -4129,8 +4168,11 @@ components:
           description: "If true, the fuel or electricity consumption is automatically\
             \ calculated through HBEFA 4.2. \nOtherwise, the **averageFuelConsumption**\
             \ or **averageElectricityConsumption** specified calculating the route\
-            \ represented by **routeId** will be considered.\nThis parameter will\
-            \ be ignored for calculation method _FRENCH_CO2E_DECREE_2017_639_."
+            \ represented by **routeId** will be considered.\nThis requires elevations,\
+            \ which are unavailable for some regions beyond −60° and +60° latitude.\
+            \ If elevations are unavailable for any part of a route, a _ROUTING_ELEVATIONS_UNAVAILABLE_\
+            \ warning will be returned.\nThis parameter will be ignored for calculation\
+            \ method _FRENCH_CO2E_DECREE_2017_639_."
           type: boolean
         iso14083EmissionFactorsVersion:
           $ref: "#/components/schemas/Iso14083EmissionFactorsVersion"
@@ -4325,8 +4367,8 @@ components:
           cost:
             price: 12.91
             currency: EUR
-          electricityConsumption: 6.628464275087742
-          electricityCharged: 0.10414449161182959
+          electricityConsumption: 1.041444916118296
+          electricityCharged: 0.7260521264802103
           batteryStateOfCharge: 58
           chargingTime: 0
           percentageCharged: 0
@@ -4339,6 +4381,9 @@ components:
           startTime: 2000-01-23T04:56:07.000+00:00
           endTime: 2000-01-23T04:56:07.000+00:00
           serviceTime: 0
+        elevationReport:
+          descent: 0
+          ascent: 0
         warnings:
         - warningCode: warningCode
           description: description
@@ -4387,7 +4432,7 @@ components:
               etcSubscriptions:
               - etcSubscriptions
               - etcSubscriptions
-              price: 0.5637376656633328
+              price: 0.7061401241503109
               paymentMethods:
               - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
               - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
@@ -4396,7 +4441,7 @@ components:
               etcSubscriptions:
               - etcSubscriptions
               - etcSubscriptions
-              price: 0.5637376656633328
+              price: 0.7061401241503109
               paymentMethods:
               - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
               - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
@@ -4413,7 +4458,7 @@ components:
               etcSubscriptions:
               - etcSubscriptions
               - etcSubscriptions
-              price: 0.5637376656633328
+              price: 0.7061401241503109
               paymentMethods:
               - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
               - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
@@ -4422,7 +4467,7 @@ components:
               etcSubscriptions:
               - etcSubscriptions
               - etcSubscriptions
-              price: 0.5637376656633328
+              price: 0.7061401241503109
               paymentMethods:
               - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
               - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
@@ -4438,18 +4483,18 @@ components:
             date: 2000-01-23
             provider: provider
             exchangeRates:
-            - rate: 7.061401241503109
+            - rate: 3.616076749251911
               currency: currency
-            - rate: 7.061401241503109
+            - rate: 3.616076749251911
               currency: currency
             baseCurrency: baseCurrency
         monetaryCosts:
-          tollCost: 0.05199002018724985
-          distanceCost: 0.9132027271330689
+          tollCost: 0.5507386964179881
+          distanceCost: 0.9702963800023566
           currency: currency
-          workingTimeCost: 0.08774076871421566
-          totalCost: 0.7260521264802103
-          energyCost: 0.9702963800023566
+          workingTimeCost: 0.05199002018724985
+          totalCost: 0.08774076871421566
+          energyCost: 0.7933506881737151
         routeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         trafficDelay: 0
         alternativeRoutes:
@@ -4481,6 +4526,9 @@ components:
               windSpeed: 0
           distance: 1422
           trafficDelay: 0
+          elevationReport:
+            descent: 0
+            ascent: 0
           tollCosts:
             convertedPrice: ""
             countries:
@@ -4520,6 +4568,9 @@ components:
               windSpeed: 0
           distance: 1422
           trafficDelay: 0
+          elevationReport:
+            descent: 0
+            ascent: 0
           tollCosts:
             convertedPrice: ""
             countries:
@@ -4546,28 +4597,28 @@ components:
           polyline: polyline
         emissions:
           iso14083_2022:
-            co2eTankToWheel: 0.3353193347011243
-            co2eWellToWheel: 0.30937452626664474
-            electricityConsumption: 0.6704019297950036
-            energyUseTankToWheel: 0.7143538047012307
-            fuelConsumption: 0.5944895607614016
-            energyUseWellToWheel: 0.08851374739011653
+            co2eTankToWheel: 0.7143538047012307
+            co2eWellToWheel: 0.08851374739011653
+            electricityConsumption: 0.30937452626664474
+            energyUseTankToWheel: 0.7058770351582356
+            fuelConsumption: 0.3353193347011243
+            energyUseWellToWheel: 0.6519180951018382
           iso14083_2023:
-            co2eTankToWheel: 0.010263654006109402
-            co2eWellToWheel: 0.46523964329332457
-            electricityConsumption: 0.6519180951018382
-            energyUseTankToWheel: 0.8969578798196912
-            fuelConsumption: 0.7058770351582356
-            energyUseWellToWheel: 0.7740351818741174
+            co2eTankToWheel: 0.8969578798196912
+            co2eWellToWheel: 0.7740351818741174
+            electricityConsumption: 0.46523964329332457
+            energyUseTankToWheel: 0.30205796992916245
+            fuelConsumption: 0.010263654006109402
+            energyUseWellToWheel: 0.3057610024104934
           frenchCO2eDecree2017_639:
-            co2eWellToWheel: 0.30205796992916245
-            co2eTankToWheel: 0.3057610024104934
+            co2eWellToWheel: 0.704836565559697
+            co2eTankToWheel: 0.5533258397034986
           en16258_2012:
-            co2eTankToWheel: 0.1284659006116532
-            co2eWellToWheel: 0.288416212666878
-            energyUseTankToWheel: 0.6778324963048014
-            fuelConsumption: 0.6965117697638845
-            energyUseWellToWheel: 0.6878052220127876
+            co2eTankToWheel: 0.6778324963048014
+            co2eWellToWheel: 0.6878052220127876
+            energyUseTankToWheel: 0.5944895607614016
+            fuelConsumption: 0.288416212666878
+            energyUseWellToWheel: 0.6704019297950036
         polyline: polyline
         events:
         - border:
@@ -4576,7 +4627,7 @@ components:
             name: name
             index: 0
           travelTimeFromStart: 56
-          utcOffset: 731
+          utcOffset: -403
           deliveryOnly:
             accessType: null
             relatedEventIndex: 0
@@ -4585,12 +4636,12 @@ components:
             cost:
               price: 12.91
               currency: EUR
-            electricityCharged: 0.6438423552598547
+            electricityCharged: 0.6965117697638845
             chargingTime: 1
             percentageCharged: 1
           latitude: 49.254878
           evStatus:
-            electricityConsumption: 8.762042012749001
+            electricityConsumption: 6.438423552598547
             batteryStateOfCharge: 58
             polyline: polyline
           toll:
@@ -4599,7 +4650,7 @@ components:
             displayName: displayName
             relatedEventIndex: 0
           utcOffsetChange:
-            utcOffset: 443
+            utcOffset: 54
           maneuver:
             roadAhead:
               number: number
@@ -4608,11 +4659,11 @@ components:
             roundaboutExit: 0
             combinedTransportName: combinedTransportName
             description: description
-            absoluteDirection: 265
+            absoluteDirection: 36
             crossingRoadName: crossingRoadName
             type: START
             directionSignText: directionSignText
-            relativeDirection: -30
+            relativeDirection: -135
             exitNumber: exitNumber
             exitName: exitName
           schedule:
@@ -4637,10 +4688,10 @@ components:
             type: PROHIBITED
             violatedVehicleProperties:
             - property: property
-              limit: 1
+              limit: 6
               value: value
             - property: property
-              limit: 1
+              limit: 6
               value: value
             polyline: polyline
           startsAt: 2020-04-06T06:00:00Z
@@ -4652,7 +4703,7 @@ components:
           distanceFromStart: 1422
           traffic:
             accessType: null
-            delay: 5
+            delay: 9
             relatedEventIndex: 0
             description: description
             language: language
@@ -4663,7 +4714,7 @@ components:
             name: name
             index: 0
           travelTimeFromStart: 56
-          utcOffset: 731
+          utcOffset: -403
           deliveryOnly:
             accessType: null
             relatedEventIndex: 0
@@ -4672,12 +4723,12 @@ components:
             cost:
               price: 12.91
               currency: EUR
-            electricityCharged: 0.6438423552598547
+            electricityCharged: 0.6965117697638845
             chargingTime: 1
             percentageCharged: 1
           latitude: 49.254878
           evStatus:
-            electricityConsumption: 8.762042012749001
+            electricityConsumption: 6.438423552598547
             batteryStateOfCharge: 58
             polyline: polyline
           toll:
@@ -4686,7 +4737,7 @@ components:
             displayName: displayName
             relatedEventIndex: 0
           utcOffsetChange:
-            utcOffset: 443
+            utcOffset: 54
           maneuver:
             roadAhead:
               number: number
@@ -4695,11 +4746,11 @@ components:
             roundaboutExit: 0
             combinedTransportName: combinedTransportName
             description: description
-            absoluteDirection: 265
+            absoluteDirection: 36
             crossingRoadName: crossingRoadName
             type: START
             directionSignText: directionSignText
-            relativeDirection: -30
+            relativeDirection: -135
             exitNumber: exitNumber
             exitName: exitName
           schedule:
@@ -4724,10 +4775,10 @@ components:
             type: PROHIBITED
             violatedVehicleProperties:
             - property: property
-              limit: 1
+              limit: 6
               value: value
             - property: property
-              limit: 1
+              limit: 6
               value: value
             polyline: polyline
           startsAt: 2020-04-06T06:00:00Z
@@ -4739,7 +4790,7 @@ components:
           distanceFromStart: 1422
           traffic:
             accessType: null
-            delay: 5
+            delay: 9
             relatedEventIndex: 0
             description: description
             language: language
@@ -4816,6 +4867,8 @@ components:
           type: string
         monetaryCosts:
           $ref: "#/components/schemas/MonetaryCosts"
+        elevationReport:
+          $ref: "#/components/schemas/ElevationReport"
         warnings:
           description: A list of warnings concerning the validity of the result.
           items:
@@ -4842,10 +4895,10 @@ components:
         type: PROHIBITED
         violatedVehicleProperties:
         - property: property
-          limit: 1
+          limit: 6
           value: value
         - property: property
-          limit: 1
+          limit: 6
           value: value
         polyline: polyline
       properties:
@@ -4894,7 +4947,7 @@ components:
     ViolatedVehicleProperty:
       example:
         property: property
-        limit: 1
+        limit: 6
         value: value
       properties:
         property:
@@ -4989,7 +5042,7 @@ components:
         requested.
       example:
         accessType: null
-        delay: 5
+        delay: 9
         relatedEventIndex: 0
         description: description
         language: language
@@ -5116,7 +5169,7 @@ components:
             etcSubscriptions:
             - etcSubscriptions
             - etcSubscriptions
-            price: 0.5637376656633328
+            price: 0.7061401241503109
             paymentMethods:
             - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
             - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
@@ -5125,7 +5178,7 @@ components:
             etcSubscriptions:
             - etcSubscriptions
             - etcSubscriptions
-            price: 0.5637376656633328
+            price: 0.7061401241503109
             paymentMethods:
             - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
             - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
@@ -5142,7 +5195,7 @@ components:
             etcSubscriptions:
             - etcSubscriptions
             - etcSubscriptions
-            price: 0.5637376656633328
+            price: 0.7061401241503109
             paymentMethods:
             - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
             - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
@@ -5151,7 +5204,7 @@ components:
             etcSubscriptions:
             - etcSubscriptions
             - etcSubscriptions
-            price: 0.5637376656633328
+            price: 0.7061401241503109
             paymentMethods:
             - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
             - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
@@ -5167,9 +5220,9 @@ components:
           date: 2000-01-23
           provider: provider
           exchangeRates:
-          - rate: 7.061401241503109
+          - rate: 3.616076749251911
             currency: currency
-          - rate: 7.061401241503109
+          - rate: 3.616076749251911
             currency: currency
           baseCurrency: baseCurrency
       properties:
@@ -5194,7 +5247,7 @@ components:
         etcSubscriptions:
         - etcSubscriptions
         - etcSubscriptions
-        price: 0.5637376656633328
+        price: 0.7061401241503109
         paymentMethods:
         - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
         - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
@@ -5334,7 +5387,7 @@ components:
           etcSubscriptions:
           - etcSubscriptions
           - etcSubscriptions
-          price: 0.5637376656633328
+          price: 0.7061401241503109
           paymentMethods:
           - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
           - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
@@ -5343,7 +5396,7 @@ components:
           etcSubscriptions:
           - etcSubscriptions
           - etcSubscriptions
-          price: 0.5637376656633328
+          price: 0.7061401241503109
           paymentMethods:
           - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
           - ELECTRONIC_TOLL_COLLECTION_SUBSCRIPTION
@@ -5521,9 +5574,9 @@ components:
         date: 2000-01-23
         provider: provider
         exchangeRates:
-        - rate: 7.061401241503109
+        - rate: 3.616076749251911
           currency: currency
-        - rate: 7.061401241503109
+        - rate: 3.616076749251911
           currency: currency
         baseCurrency: baseCurrency
       properties:
@@ -5554,7 +5607,7 @@ components:
       type: object
     ExchangeRate:
       example:
-        rate: 7.061401241503109
+        rate: 3.616076749251911
         currency: currency
       properties:
         currency:
@@ -5583,7 +5636,7 @@ components:
         \ do not use DST \n so that the neighboring time zone has the same UTC offset\
         \ in summer."
       example:
-        utcOffset: 443
+        utcOffset: 54
       properties:
         utcOffset:
           description: "The new UTC offset [min]."
@@ -5923,12 +5976,12 @@ components:
       description: "Provides an overview of the costs of the route.  \nRequires the\
         \ result _MONETARY_COSTS_ to be requested."
       example:
-        tollCost: 0.05199002018724985
-        distanceCost: 0.9132027271330689
+        tollCost: 0.5507386964179881
+        distanceCost: 0.9702963800023566
         currency: currency
-        workingTimeCost: 0.08774076871421566
-        totalCost: 0.7260521264802103
-        energyCost: 0.9702963800023566
+        workingTimeCost: 0.05199002018724985
+        totalCost: 0.08774076871421566
+        energyCost: 0.7933506881737151
       properties:
         currency:
           description: "The currency code according to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)."
@@ -5970,6 +6023,31 @@ components:
       - tollCost
       - totalCost
       - workingTimeCost
+      type: object
+    ElevationReport:
+      description: |-
+        Provides information on the topography of the route or leg, i.e. the total ascent and descent. Elevation‑based metrics represent approximate values and may differ from real‑world measurements.
+
+        For each leg the constraint ascent − descent = net elevation difference (last point minus first point) is maintained. Because of this, the sum of ascent or descent values across all legs may slightly exceed the corresponding route total.
+      example:
+        descent: 0
+        ascent: 0
+      properties:
+        ascent:
+          description: "Total ascent of the route or leg [m], estimated from sampled\
+            \ elevation data along the route."
+          format: int32
+          minimum: 0
+          type: integer
+        descent:
+          description: "Total descent of the route or leg [m], estimated from sampled\
+            \ elevation data along the route."
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - ascent
+      - descent
       type: object
     AllowedCountries:
       description: |-
@@ -7629,8 +7707,8 @@ components:
         cost:
           price: 12.91
           currency: EUR
-        electricityConsumption: 6.628464275087742
-        electricityCharged: 0.10414449161182959
+        electricityConsumption: 1.041444916118296
+        electricityCharged: 0.7260521264802103
         batteryStateOfCharge: 58
         chargingTime: 0
         percentageCharged: 0
@@ -7719,7 +7797,7 @@ components:
         Issued periodically to report electricity consumption and battery status.
         Requires _EV_STATUS_EVENTS_ or _EV_STATUS_EVENTS_POLYLINE_ to be requested.
       example:
-        electricityConsumption: 8.762042012749001
+        electricityConsumption: 6.438423552598547
         batteryStateOfCharge: 58
         polyline: polyline
       properties:
@@ -7755,7 +7833,7 @@ components:
         cost:
           price: 12.91
           currency: EUR
-        electricityCharged: 0.6438423552598547
+        electricityCharged: 0.6965117697638845
         chargingTime: 1
         percentageCharged: 1
       properties:

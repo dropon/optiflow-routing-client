@@ -69,6 +69,8 @@
 
 * `MONETARY_COSTS` (value: `"MONETARY_COSTS"`)
 
+* `ELEVATION_REPORT` (value: `"ELEVATION_REPORT"`)
+
 * `EV_REPORT` (value: `"EV_REPORT"`)
 
 * `EV_STATUS_EVENTS` (value: `"EV_STATUS_EVENTS"`)
