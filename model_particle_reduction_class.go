@@ -15,17 +15,17 @@ import (
 	"fmt"
 )
 
-// ParticleReductionClass The particle reduction class (Partikelminderungsklasse) according to 'Anlage XIV zu &sect; 48 StVZO' (German law). This value is present for compatibility reasons and does not influence any of the results.  Supported for **engineType** _COMBUSTION_ and _HYBRID_.
+// ParticleReductionClass The particle reduction class (Partikelminderungsklasse) according to 'Anlage XIV zu &sect; 48 StVZO' (German law). This value is present for compatibility reasons and does not influence any of the results.  Supported for **engineType** _COMBUSTION_ and _HYBRID_. 
 type ParticleReductionClass string
 
 // List of ParticleReductionClass
 const (
-	PMK_0                         ParticleReductionClass = "PMK_0"
-	PMK_1                         ParticleReductionClass = "PMK_1"
-	PMK_2                         ParticleReductionClass = "PMK_2"
-	PMK_3                         ParticleReductionClass = "PMK_3"
-	PMK_4                         ParticleReductionClass = "PMK_4"
-	NONE_PARTICLE_REDUCTION_CLASS ParticleReductionClass = "NONE"
+	PMK_0 ParticleReductionClass = "PMK_0"
+	PMK_1 ParticleReductionClass = "PMK_1"
+	PMK_2 ParticleReductionClass = "PMK_2"
+	PMK_3 ParticleReductionClass = "PMK_3"
+	PMK_4 ParticleReductionClass = "PMK_4"
+	NONE ParticleReductionClass = "NONE"
 )
 
 // All allowed values of ParticleReductionClass enum
@@ -116,3 +116,4 @@ func (v *NullableParticleReductionClass) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
