@@ -20,8 +20,8 @@ type TrafficMode string
 
 // List of TrafficMode
 const (
-	REALISTIC TrafficMode = "REALISTIC"
-	AVERAGE TrafficMode = "AVERAGE"
+	REALISTIC_TRAFFIC_MODE TrafficMode = "REALISTIC"
+	AVERAGE_TRAFFIC_MODE   TrafficMode = "AVERAGE"
 )
 
 // All allowed values of TrafficMode enum
@@ -108,4 +108,3 @@ func (v *NullableTrafficMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
