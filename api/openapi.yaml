@@ -6,7 +6,7 @@ info:
     \ into account vehicle-specific restrictions, traffic situations, toll, emissions,\
     \ drivers' working hours, service times and opening intervals."
   title: Routing
-  version: "1.38"
+  version: "1.39"
 servers:
 - url: https://api.myptv.com/routing/v1
 security:
@@ -264,15 +264,19 @@ paths:
           \ events to the waypoint at which they take place, in particular to distinguish\
           \ them when there are several waypoints at the same location.\n    Response\
           \ includes **events** when the driver takes a break or a rest, performs\
-          \ service or waits for a waypoint to open (**schedule**).\n * `SCHEDULE_EVENTS_WITH_DRIVING`\n\
-          \    Response includes **events** when the driver drives, takes a break\
-          \ or a rest, performs service or waits for a waypoint to open (**schedule**).\
-          \ _SCHEDULE_EVENTS_ will automatically be included.\n    We recommend to\
-          \ additionally request _WAYPOINT_EVENTS_ to assign service and recreation\
-          \ events to the waypoint at which they take place, in particular to distinguish\
-          \ them when there are several waypoints at the same location.\n * `SCHEDULE_REPORT`\n\
-          \    Response includes the **scheduleReport** which provides an overview\
-          \ of the times of the schedule of this route including break and rest times.\n\
+          \ service or waits for a waypoint to open (**schedule**). \n    Not available\
+          \ when **options[arrivalTime]** or **options[tollTime]** is specified.\n\
+          \ * `SCHEDULE_EVENTS_WITH_DRIVING`\n    Response includes **events** when\
+          \ the driver drives, takes a break or a rest, performs service or waits\
+          \ for a waypoint to open (**schedule**). _SCHEDULE_EVENTS_ will automatically\
+          \ be included.\n    We recommend to additionally request _WAYPOINT_EVENTS_\
+          \ to assign service and recreation events to the waypoint at which they\
+          \ take place, in particular to distinguish them when there are several waypoints\
+          \ at the same location.\n    Not available when **options[arrivalTime]**\
+          \ or **options[tollTime]** is specified.\n * `SCHEDULE_REPORT`\n    Response\
+          \ includes the **scheduleReport** which provides an overview of the times\
+          \ of the schedule of this route including break and rest times.\n    Not\
+          \ available when **options[arrivalTime]** or **options[tollTime]** is specified.\n\
           \ * `EV_REPORT`\n    Response includes a report with detailed electricity\
           \ consumption for electric vehicles for the route and, if they are requested,\
           \ for legs. This is only available for concrete models of electric vehicles\
@@ -538,15 +542,19 @@ paths:
           \ events to the waypoint at which they take place, in particular to distinguish\
           \ them when there are several waypoints at the same location.\n    Response\
           \ includes **events** when the driver takes a break or a rest, performs\
-          \ service or waits for a waypoint to open (**schedule**).\n * `SCHEDULE_EVENTS_WITH_DRIVING`\n\
-          \    Response includes **events** when the driver drives, takes a break\
-          \ or a rest, performs service or waits for a waypoint to open (**schedule**).\
-          \ _SCHEDULE_EVENTS_ will automatically be included.\n    We recommend to\
-          \ additionally request _WAYPOINT_EVENTS_ to assign service and recreation\
-          \ events to the waypoint at which they take place, in particular to distinguish\
-          \ them when there are several waypoints at the same location.\n * `SCHEDULE_REPORT`\n\
-          \    Response includes the **scheduleReport** which provides an overview\
-          \ of the times of the schedule of this route including break and rest times.\n\
+          \ service or waits for a waypoint to open (**schedule**). \n    Not available\
+          \ when **options[arrivalTime]** or **options[tollTime]** is specified.\n\
+          \ * `SCHEDULE_EVENTS_WITH_DRIVING`\n    Response includes **events** when\
+          \ the driver drives, takes a break or a rest, performs service or waits\
+          \ for a waypoint to open (**schedule**). _SCHEDULE_EVENTS_ will automatically\
+          \ be included.\n    We recommend to additionally request _WAYPOINT_EVENTS_\
+          \ to assign service and recreation events to the waypoint at which they\
+          \ take place, in particular to distinguish them when there are several waypoints\
+          \ at the same location.\n    Not available when **options[arrivalTime]**\
+          \ or **options[tollTime]** is specified.\n * `SCHEDULE_REPORT`\n    Response\
+          \ includes the **scheduleReport** which provides an overview of the times\
+          \ of the schedule of this route including break and rest times.\n    Not\
+          \ available when **options[arrivalTime]** or **options[tollTime]** is specified.\n\
           \ * `EV_REPORT`\n    Response includes a report with detailed electricity\
           \ consumption for electric vehicles for the route and, if they are requested,\
           \ for legs. This is only available for concrete models of electric vehicles\
@@ -732,15 +740,19 @@ paths:
           \ events to the waypoint at which they take place, in particular to distinguish\
           \ them when there are several waypoints at the same location.\n    Response\
           \ includes **events** when the driver takes a break or a rest, performs\
-          \ service or waits for a waypoint to open (**schedule**).\n * `SCHEDULE_EVENTS_WITH_DRIVING`\n\
-          \    Response includes **events** when the driver drives, takes a break\
-          \ or a rest, performs service or waits for a waypoint to open (**schedule**).\
-          \ _SCHEDULE_EVENTS_ will automatically be included.\n    We recommend to\
-          \ additionally request _WAYPOINT_EVENTS_ to assign service and recreation\
-          \ events to the waypoint at which they take place, in particular to distinguish\
-          \ them when there are several waypoints at the same location.\n * `SCHEDULE_REPORT`\n\
-          \    Response includes the **scheduleReport** which provides an overview\
-          \ of the times of the schedule of this route including break and rest times.\n\
+          \ service or waits for a waypoint to open (**schedule**). \n    Not available\
+          \ when **options[arrivalTime]** or **options[tollTime]** is specified.\n\
+          \ * `SCHEDULE_EVENTS_WITH_DRIVING`\n    Response includes **events** when\
+          \ the driver drives, takes a break or a rest, performs service or waits\
+          \ for a waypoint to open (**schedule**). _SCHEDULE_EVENTS_ will automatically\
+          \ be included.\n    We recommend to additionally request _WAYPOINT_EVENTS_\
+          \ to assign service and recreation events to the waypoint at which they\
+          \ take place, in particular to distinguish them when there are several waypoints\
+          \ at the same location.\n    Not available when **options[arrivalTime]**\
+          \ or **options[tollTime]** is specified.\n * `SCHEDULE_REPORT`\n    Response\
+          \ includes the **scheduleReport** which provides an overview of the times\
+          \ of the schedule of this route including break and rest times.\n    Not\
+          \ available when **options[arrivalTime]** or **options[tollTime]** is specified.\n\
           \ * `EV_REPORT`\n    Response includes a report with detailed electricity\
           \ consumption for electric vehicles for the route and, if they are requested,\
           \ for legs. This is only available for concrete models of electric vehicles\
@@ -1691,19 +1703,22 @@ components:
         \ events to the waypoint at which they take place, in particular to distinguish\
         \ them when there are several waypoints at the same location.\n    Response\
         \ includes **events** when the driver takes a break or a rest, performs service\
-        \ or waits for a waypoint to open (**schedule**).\n * `SCHEDULE_EVENTS_WITH_DRIVING`\n\
+        \ or waits for a waypoint to open (**schedule**). \n    Not available when\
+        \ **options[arrivalTime]** or **options[tollTime]** is specified.\n * `SCHEDULE_EVENTS_WITH_DRIVING`\n\
         \    Response includes **events** when the driver drives, takes a break or\
         \ a rest, performs service or waits for a waypoint to open (**schedule**).\
         \ _SCHEDULE_EVENTS_ will automatically be included.\n    We recommend to additionally\
         \ request _WAYPOINT_EVENTS_ to assign service and recreation events to the\
         \ waypoint at which they take place, in particular to distinguish them when\
-        \ there are several waypoints at the same location.\n * `SCHEDULE_REPORT`\n\
+        \ there are several waypoints at the same location.\n    Not available when\
+        \ **options[arrivalTime]** or **options[tollTime]** is specified.\n * `SCHEDULE_REPORT`\n\
         \    Response includes the **scheduleReport** which provides an overview of\
         \ the times of the schedule of this route including break and rest times.\n\
-        \ * `EV_REPORT`\n    Response includes a report with detailed electricity\
-        \ consumption for electric vehicles for the route and, if they are requested,\
-        \ for legs. This is only available for concrete models of electric vehicles\
-        \ but not for general routing profiles (see documentation of **profile**).\n\
+        \    Not available when **options[arrivalTime]** or **options[tollTime]**\
+        \ is specified.\n * `EV_REPORT`\n    Response includes a report with detailed\
+        \ electricity consumption for electric vehicles for the route and, if they\
+        \ are requested, for legs. This is only available for concrete models of electric\
+        \ vehicles but not for general routing profiles (see documentation of **profile**).\n\
         \    This requires elevations, which are unavailable for some regions beyond\
         \ −60° and +60° latitude. If elevations are unavailable for any part of a\
         \ route, a _ROUTING_ELEVATIONS_UNAVAILABLE_ warning will be returned.\n  \
@@ -3157,7 +3172,7 @@ components:
               * `value` - The invalid parameter value.
             * `ROUTING_PARAMETER_NOT_SUPPORTED_BY_GET_ROUTE_BY_ROUTE_ID` - The requested parameter is not supported by this **getRouteByRouteId** operation.
               * `value` - The invalid parameter value.
-            * `ROUTING_OPENING_INTERVALS_REQUIRE_TIME` - When using waypoints with opening intervals or a **routeId** containing such waypoints, a start time has to be specified when **options[trafficMode]** is _AVERAGE_.
+            * `ROUTING_OPENING_INTERVALS_REQUIRE_TIME` - When using waypoints with opening intervals or a **routeId** containing such waypoints, a start time has to be specified when **options[trafficMode]** is not _REALISTIC_.
             * `ROUTING_ARRIVAL_TIME_WITH_SCHEDULE` - **options[arrivalTime]** cannot be used with the **results** _SCHEDULE_REPORT_ and _SCHEDULE_EVENT_ nor when **openingIntervals**, **serviceTime** or **workingHoursPreset** are specified.
               * `value` - The invalid parameter value.
             * `ROUTING_INVALID_NUMBER_OF_COORDINATES` - The polyline cannot be parsed because the number of coordinates is not even or less than 4.
@@ -3973,8 +3988,8 @@ components:
         startsAt:
           description: "The time at which the event starts formatted according to\
             \ [RFC 3339](https://tools.ietf.org/html/rfc3339). Will not be present\
-            \ for **trafficMode** _AVERAGE_ when neither **startTime** nor **arrivalTime**\
-            \ is specified."
+            \ for **trafficMode** _AVERAGE_ or _CONSTANT_ when neither **startTime**\
+            \ nor **arrivalTime** is specified."
           example: 2020-04-06T06:00:00Z
           format: date-time
           type: string
@@ -3998,8 +4013,8 @@ components:
           type: string
         utcOffset:
           description: "The offset to UTC [min]. Will not contain daylight-saving\
-            \ time for **trafficMode** _AVERAGE_ when neither **startTime** nor **arrivalTime**\
-            \ is specified."
+            \ time for **trafficMode** _AVERAGE_ or _CONSTANT_ when neither **startTime**\
+            \ nor **arrivalTime** is specified."
           format: int32
           maximum: 840
           minimum: -720
@@ -5811,51 +5826,68 @@ components:
       - MAXIMUM_DRIVING_TIME
     TrafficMode:
       default: REALISTIC
-      description: |-
-        Defines how to consider traffic in a route calculation.
-         * `REALISTIC` - Returns the most realistic **travelTime** and **distance** for the selected vehicle and the
-         given **startTime** or **arrivalTime** or the current time if none of them is specified.
-         Takes into account the live traffic situation such as traffic jams or road works
-         as well as the typical traffic situation at the time of day and the day of week of travel such as the rush-hour
-         on Monday morning or light traffic on Saturday evening.
-         * `AVERAGE` - Returns the average **travelTime** and **distance** for the selected vehicle.
-         If **startTime** or **arrivalTime** is specified, the typical traffic situation for that time of day and day of week will be considered such as the rush-hour
-         on Monday morning or light traffic on Saturday evening. Toll will be calculated according to that date and time.
-         If none of them is specified the typical traffic situation will not be considered, and **travelTime** and **distance** are an average independent of when to travel.
-         Tolls will be calculated based on the toll prices valid at noon on Monday of the current week, using the time zone of the start waypoint.
-
-        See [here](./concepts/traffic-modes) for more information.
-        This parameter will be ignored for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_.
+      description: "Defines how to consider traffic in a route calculation.\n * `REALISTIC`\
+        \ - Returns the most realistic **travelTime** and **distance** for the selected\
+        \ vehicle and the\n given **startTime** or **arrivalTime** or the current\
+        \ time if none of them is specified.\n Takes into account the live traffic\
+        \ situation such as traffic jams or road works\n as well as the typical traffic\
+        \ situation at the time of day and the day of week of travel such as the rush-hour\n\
+        \ on Monday morning or light traffic on Saturday evening.\n For best results,\
+        \ the date of travel should be on the current day.\n * `AVERAGE` - Returns\
+        \ the average **travelTime** and **distance** for the selected vehicle.\n\
+        \ If **startTime** or **arrivalTime** is specified, the typical traffic situation\
+        \ for that time of day and day of week will be considered such as the rush-hour\n\
+        \ on Monday morning or light traffic on Saturday evening. Toll will be calculated\
+        \ according to that date and time.\n If none of them is specified the typical\
+        \ traffic situation will not be considered, and **travelTime** and **distance**\
+        \ are an average independent of when to travel.\n Toll will be calculated\
+        \ based on the toll prices valid at noon on Monday of the current week, using\
+        \ the time zone of the start waypoint.\n * `CONSTANT` - Returns a **travelTime**\
+        \ and **distance** for the selected vehicle which is independent of the date\
+        \ and time of travel.\n The typical traffic situation will not be considered,\
+        \ and **travelTime** and **distance** are independent of when to travel.\n\
+        \ If **startTime** or **arrivalTime** is specified, toll will be calculated\
+        \ according to that date and time, otherwise \n Toll will be calculated based\
+        \ on the toll prices valid at noon on Monday of the current week, using the\
+        \ time zone of the start waypoint.\n \nSee [here](./concepts/traffic-modes)\
+        \ for more information.\nThis parameter will be ignored for non-motorized\
+        \ profiles such as _BICYCLE_ or _PEDESTRIAN_."
       enum:
       - REALISTIC
       - AVERAGE
+      - CONSTANT
       type: string
       x-enum-varnames:
       - REALISTIC
       - AVERAGE
+      - CONSTANT
     ReachableTrafficMode:
       default: AVERAGE
       description: |-
         Defines how to consider traffic in a reachable areas or a reachable locations calculation.
          * `REALISTIC` - Uses the most realistic **travelTime** and **distance** for the selected vehicle and the
-         given **referenceTime** or the current time if **referenceTime** is not specified.
+         given **options[referenceTime]** or the current time if **options[referenceTime]** is not specified.
          Takes into account the live traffic situation such as traffic jams or road works
          as well as the typical traffic situation at the time of day and the day of week of travel such as the rush-hour
          on Monday morning or light traffic on Saturday evening.
          * `AVERAGE` - Uses the average **travelTime** and **distance** for the selected vehicle.
-         If **referenceTime** is specified, the typical traffic situation for that time of day and day of week will be considered such as the rush-hour
+         If **options[referenceTime]** is specified, the typical traffic situation for that time of day and day of week will be considered such as the rush-hour
          on Monday morning or light traffic on Saturday evening.
-         If no **referenceTime** is specified the typical traffic situation will not be considered, and **travelTime** and **distance** are an average independent of when to travel.
+         If no **options[referenceTime]** is specified the typical traffic situation will not be considered, and **travelTime** and **distance** are an average independent of when to travel.
+         * `CONSTANT` - Returns a **travelTime** and **distance** for the selected vehicle which is independent of the date and time of travel.
+         The typical traffic situation will not be considered, and **travelTime** and **distance** are independent of when to travel.
 
         See [here](./concepts/traffic-modes) for more information.
         This parameter will be ignored for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_.
       enum:
       - REALISTIC
       - AVERAGE
+      - CONSTANT
       type: string
       x-enum-varnames:
       - REALISTIC
       - AVERAGE
+      - CONSTANT
     RoutingMode:
       default: FAST
       description: "Specifies which objective function should be used for the route\
@@ -6367,6 +6399,7 @@ components:
         referenceTime:
           description: |-
             Defines the start time for **drivingDirection** _OUTBOUND_ or the arrival time for **drivingDirection** _INBOUND_ formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339).
+            Cannot be used with **options[trafficMode]=CONSTANT**.
 
             If the date-time string does not include an explicit offset to UTC, the time will be interpreted as the local time of the waypoint.
             The date must not be before 1970-01-01T00:00:00+00:00 nor after 2037-12-31T23:59:59+00:00.
@@ -6921,7 +6954,9 @@ components:
             \ does not arrive at a waypoint within an opening interval, a waiting\
             \ time will be scheduled. \nWhen using a multi-day **workingHoursPreset**\
             \ this waiting time will usually be used for daily rests instead, in order\n\
-            to continue the route with a rested driver."
+            to continue the route with a rested driver.\nRequires **options[startTime]**\
+            \ to be specified, or **options[trafficMode]** _REALISTIC_ with no time\
+            \ being specified."
           items:
             $ref: "#/components/schemas/TimeInterval"
           maxItems: 30
@@ -7033,7 +7068,9 @@ components:
             \ does not arrive at a waypoint within an opening interval, a waiting\
             \ time will be scheduled. \nWhen using a multi-day **workingHoursPreset**\
             \ this waiting time will usually be used for daily rests instead, in order\n\
-            to continue the route with a rested driver."
+            to continue the route with a rested driver.\nRequires **options[startTime]**\
+            \ to be specified, or **options[trafficMode]** _REALISTIC_ with no time\
+            \ being specified."
           items:
             $ref: "#/components/schemas/TimeInterval"
           maxItems: 30
@@ -7123,7 +7160,8 @@ components:
         \ at a waypoint within an opening interval, a waiting time will be scheduled.\
         \ \nWhen using a multi-day **workingHoursPreset** this waiting time will usually\
         \ be used for daily rests instead, in order\nto continue the route with a\
-        \ rested driver."
+        \ rested driver.\nRequires **options[startTime]** to be specified, or **options[trafficMode]**\
+        \ _REALISTIC_ with no time being specified."
       items:
         $ref: "#/components/schemas/TimeInterval"
       maxItems: 30
@@ -7429,12 +7467,12 @@ components:
             \ a road segment depends on its road category and a speed category defined\
             \ in the map data\nand is calculated by linear interpolation between the\
             \ minimum and maximum speed.\n\nThis parameter can be specified only,\
-            \ if **options[trafficMode]** is _AVERAGE_ and neither **options[startTime]**\
-            \ \nnor **options[arrivalTime]** is specified. Otherwise, an error will\
-            \ be returned.\n\nSee [here](./concepts/speeds) for more information,\
-            \ in particular on the influence of further speed-related parameters\n\
-            such as **options[maximumSpeed]**, **options[speedFactor]** and relative\
-            \ speeds applied by custom road attribute scenarios."
+            \ if **options[trafficMode]** is _CONSTANT_, or if _AVERAGE_ and neither\
+            \ **options[startTime]** \nnor **options[arrivalTime]** is specified.\
+            \ Otherwise, an error will be returned.\n\nSee [here](./concepts/speeds)\
+            \ for more information, in particular on the influence of further speed-related\
+            \ parameters\nsuch as **options[maximumSpeed]**, **options[speedFactor]**\
+            \ and relative speeds applied by custom road attribute scenarios."
           items:
             $ref: "#/components/schemas/SpeedByRoadCategory"
           maxItems: 8
@@ -7469,11 +7507,12 @@ components:
         \ depends on its road category and a speed category defined in the map data\n\
         and is calculated by linear interpolation between the minimum and maximum\
         \ speed.\n\nThis parameter can be specified only, if **options[trafficMode]**\
-        \ is _AVERAGE_ and neither **options[startTime]** \nnor **options[arrivalTime]**\
-        \ is specified. Otherwise, an error will be returned.\n\nSee [here](./concepts/speeds)\
-        \ for more information, in particular on the influence of further speed-related\
-        \ parameters\nsuch as **options[maximumSpeed]**, **options[speedFactor]**\
-        \ and relative speeds applied by custom road attribute scenarios."
+        \ is _CONSTANT_, or if _AVERAGE_ and neither **options[startTime]** \nnor\
+        \ **options[arrivalTime]** is specified. Otherwise, an error will be returned.\n\
+        \nSee [here](./concepts/speeds) for more information, in particular on the\
+        \ influence of further speed-related parameters\nsuch as **options[maximumSpeed]**,\
+        \ **options[speedFactor]** and relative speeds applied by custom road attribute\
+        \ scenarios."
       items:
         $ref: "#/components/schemas/SpeedByRoadCategory"
       maxItems: 8

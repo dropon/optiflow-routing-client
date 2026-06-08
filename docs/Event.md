@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Latitude** | **float64** | The latitude of the position where the event takes place in degrees (WGS84/EPSG:4326) from south to north. | 
 **Longitude** | **float64** | The longitude of the position where the event takes place in degrees (WGS84/EPSG:4326) from west to east. | 
-**StartsAt** | Pointer to **time.Time** | The time at which the event starts formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339). Will not be present for **trafficMode** _AVERAGE_ when neither **startTime** nor **arrivalTime** is specified. | [optional] 
+**StartsAt** | Pointer to **time.Time** | The time at which the event starts formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339). Will not be present for **trafficMode** _AVERAGE_ or _CONSTANT_ when neither **startTime** nor **arrivalTime** is specified. | [optional] 
 **DistanceFromStart** | **int32** | The distance from the start to this event [m]. | 
 **TravelTimeFromStart** | **int32** | The travel time from the start to this event [s]. | 
 **CountryCode** | **string** | Countries are represented according to their [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) if referring to a subdivision. | 
-**UtcOffset** | **int32** | The offset to UTC [min]. Will not contain daylight-saving time for **trafficMode** _AVERAGE_ when neither **startTime** nor **arrivalTime** is specified. | 
+**UtcOffset** | **int32** | The offset to UTC [min]. Will not contain daylight-saving time for **trafficMode** _AVERAGE_ or _CONSTANT_ when neither **startTime** nor **arrivalTime** is specified. | 
 **Toll** | Pointer to [**TollEvent**](TollEvent.md) |  | [optional] 
 **Maneuver** | Pointer to [**ManeuverEvent**](ManeuverEvent.md) |  | [optional] 
 **Border** | Pointer to [**BorderEvent**](BorderEvent.md) |  | [optional] 
