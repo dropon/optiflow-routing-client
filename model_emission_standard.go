@@ -15,25 +15,25 @@ import (
 	"fmt"
 )
 
-// EmissionStandard The emission standard of the vehicle valid in the European Union. This parameter is not only important for proper toll and emission calculation,  there are also low-emission zones which can be entered only if the vehicle has a proper emission standard. In contrast to explicit approvals like environmental badges or vehicle registrations the emission standard is automatically considered when entering such low-emission zones.  Values different from _NONE_ are supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for `routing`, `toll`, `emissions`. 
+// EmissionStandard The emission standard of the vehicle valid in the European Union. This parameter is not only important for proper toll and emission calculation,  there are also low-emission zones which can be entered only if the vehicle has a proper emission standard. In contrast to explicit approvals like environmental badges or vehicle registrations the emission standard is automatically considered when entering such low-emission zones.  Values different from _NONE_ are supported for **engineType** _COMBUSTION_ and _HYBRID_. Relevant for `routing`, `toll`, `emissions`.
 type EmissionStandard string
 
 // List of EmissionStandard
 const (
-	NONE EmissionStandard = "NONE"
-	EURO_0 EmissionStandard = "EURO_0"
-	EURO_1 EmissionStandard = "EURO_1"
-	EURO_2 EmissionStandard = "EURO_2"
-	EURO_3 EmissionStandard = "EURO_3"
-	EURO_4 EmissionStandard = "EURO_4"
-	EURO_5 EmissionStandard = "EURO_5"
-	EURO_EEV EmissionStandard = "EURO_EEV"
-	EURO_6 EmissionStandard = "EURO_6"
-	EURO_6C EmissionStandard = "EURO_6C"
-	EURO_6D_TEMP EmissionStandard = "EURO_6D_TEMP"
-	EURO_6D EmissionStandard = "EURO_6D"
-	EURO_6E EmissionStandard = "EURO_6E"
-	EURO_7 EmissionStandard = "EURO_7"
+	NONE_EMISSION_STANDARD EmissionStandard = "NONE"
+	EURO_0                 EmissionStandard = "EURO_0"
+	EURO_1                 EmissionStandard = "EURO_1"
+	EURO_2                 EmissionStandard = "EURO_2"
+	EURO_3                 EmissionStandard = "EURO_3"
+	EURO_4                 EmissionStandard = "EURO_4"
+	EURO_5                 EmissionStandard = "EURO_5"
+	EURO_EEV               EmissionStandard = "EURO_EEV"
+	EURO_6                 EmissionStandard = "EURO_6"
+	EURO_6C                EmissionStandard = "EURO_6C"
+	EURO_6D_TEMP           EmissionStandard = "EURO_6D_TEMP"
+	EURO_6D                EmissionStandard = "EURO_6D"
+	EURO_6E                EmissionStandard = "EURO_6E"
+	EURO_7                 EmissionStandard = "EURO_7"
 )
 
 // All allowed values of EmissionStandard enum
@@ -132,4 +132,3 @@ func (v *NullableEmissionStandard) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
