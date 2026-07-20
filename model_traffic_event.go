@@ -26,7 +26,7 @@ type TrafficEvent struct {
 	// The description of the incident in the language specified by the parameter **options[language]**. 
 	Description *string `json:"description,omitempty"`
 	// The language of the description, if the given language is not supported for this incident. Not present otherwise.
-	Language *string `json:"language,omitempty" validate:"regexp=[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"`
+	Language *string `json:"language,omitempty" validate:"regexp=[a-zA-Z]{1\\,8}(-[a-zA-Z0-9]{1\\,8})*"`
 	AccessType AccessType `json:"accessType"`
 	// For **accessType** _ENTER_ this index points to the corresponding event with **accessType** _EXIT_ and vice-versa. Not present otherwise.
 	RelatedEventIndex *int32 `json:"relatedEventIndex,omitempty"`
