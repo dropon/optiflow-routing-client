@@ -6,7 +6,7 @@ info:
     \ into account vehicle-specific restrictions, traffic situations, toll, emissions,\
     \ drivers' working hours, service times and opening intervals."
   title: Routing
-  version: "1.39"
+  version: "1.40"
 servers:
 - url: https://api.myptv.com/routing/v1
 security:
@@ -1906,7 +1906,7 @@ components:
             Comma-separated list of exemptions to enter low-emission zones.
 
             Available values are provided by type `LowEmissionZoneExemptions`:
-            "BE_LAGE_EMISSIEZONE_ANTWERPEN" "BE_LAGE_EMISSIEZONE_GENT" "BE_ZONE_BASSE_EMISSION_BRUXELLES" "DK_AALBORG_MILJOZONE" "DK_ARHUS_MILJOZONE" "DK_FREDERIKSBERG_MILJOZONE" "DK_KOBENHAVN_MILJOZONE" "DK_ODENSE_MILJOZONE" "ES_ZBEDEP_MADRID_PLAZA_ELIPTICA" "ES_ZBE_ALCOBENDAS" "ES_ZBE_ALICANTE" "ES_ZBE_ALMERIA" "ES_ZBE_BENIDORM" "ES_ZBE_BILBAO" "ES_ZBE_BOADILLA_DEL_MONTE" "ES_ZBE_BURGOS" "ES_ZBE_CASTELLDEFELS" "ES_ZBE_CERDANYOLA_DEL_VALLES" "ES_ZBE_CHICLANA_DE_LA_FRONTERA" "ES_ZBE_CORDOBA" "ES_ZBE_CUENCA" "ES_ZBE_EL_PRAT_DE_LLOBREGAT" "ES_ZBE_ELDA" "ES_ZBE_ESTEPONA" "ES_ZBE_FUENLABRADA" "ES_ZBE_GETAFE" "ES_ZBE_GIRONA" "ES_ZBE_GRANADA" "ES_ZBE_GRANOLLERS" "ES_ZBE_GUADALAJARA" "ES_ZBE_JEREZ_DE_LA_FRONTERA" "ES_ZBE_LLEIDA" "ES_ZBE_MOLLET_DEL_VALLES" "ES_ZBE_MOSTOLES" "ES_ZBE_MOTRIL" "ES_ZBE_PALMA" "ES_ZBE_PAMPLONA" "ES_ZBE_PARLA" "ES_ZBE_REUS" "ES_ZBE_RIVAS_CEIP_COLEGIO_LUYFE" "ES_ZBE_RIVAS_CEIP_DULCE_CHACON" "ES_ZBE_RIVAS_CEIP_HANS_CHRISTIAN_ANDERSEN" "ES_ZBE_RIVAS_CEIP_JARAMA" "ES_ZBE_RIVAS_CEIP_JOSE_HIERRO" "ES_ZBE_RIVAS_CEIP_JOSE_ITURZAETA" "ES_ZBE_RIVAS_CEIP_LAS_CIGUENAS" "ES_ZBE_RIVAS_CEIP_VICTORIA_KENT" "ES_ZBE_RIVAS_COLEGIO_SANTA_MONICA" "ES_ZBE_RUBI" "ES_ZBE_SABADELL" "ES_ZBE_SAN_SEBASTIAN" "ES_ZBE_SEGOVIA" "ES_ZBE_TARRAGONA" "ES_ZBE_TERRASSA" "ES_ZBE_TORREJON_DE_ARDOZ" "ES_ZBE_TORRELAVEGA" "ES_ZBE_TORREMOLINOS" "ES_ZBE_VALLADOLID" "ES_ZBE_VITORIA_GASTEIZ" "FR_ANGERS_ZFE" "FR_STRASBOURG_ZFE" "GB_ABERDEEN_LEZ" "GB_BATH_CAZ" "GB_BIRMINGHAM_CAZ" "GB_BRADFORD_CAZ" "GB_BRISTOL_CAZ" "GB_DUNDEE_LEZ" "GB_EDINBURGH_LEZ" "GB_GLASGOW_LEZ" "GB_LONDON_ULTRA_LOW_EMISSION_ZONE" "GB_NEWCASTLE_CAZ" "GB_PORTSMOUTH_CAZ" "GB_SHEFFIELD_CAZ" "IT_MILANO_AREA_C" "IT_PALERMO_ZTL" "NL_AMERSFOORT_ZERO_EMISSIEZONE" "NL_AMSTERDAM_MILIEUZONE" "NL_AMSTERDAM_ZERO_EMISSIEZONE" "NL_ARNHEM_MILIEUZONE" "NL_ASSEN_ZERO_EMISSIEZONE" "NL_BREDA_MILIEUZONE" "NL_DELFT_HAAG_ZERO_EMISSIEZONE" "NL_DELFT_MILIEUZONE" "NL_DEN_HAAG_MILIEUZONE" "NL_DEN_HAAG_ZERO_EMISSIEZONE" "NL_EINDHOVEN_MILIEUZONE" "NL_EINDHOVEN_ZERO_EMISSIEZONE" "NL_ENSCHEDE_ZERO_EMISSIEZONE" "NL_GOUDA_ZERO_EMISSIEZONE" "NL_GRONINGEN_ZERO_EMISSIEZONE" "NL_HAARLEM_MILIEUZONE" "NL_LEIDEN_MILIEUZONE" "NL_LEIDEN_ZERO_EMISSIEZONE" "NL_MAASTRICHT_MILIEUZONE" "NL_MAASTRICHT_ZERO_EMISSIEZONE" "NL_MAASVLAKTE_ROTTERDAM_MILIEUZONE" "NL_NIJMEGEN_ZERO_EMISSIEZONE" "NL_RIJSWIJK_MILIEUZONE" "NL_ROTTERDAM_MILIEUZONE" "NL_ROTTERDAM_ZERO_EMISSIEZONE" "NL_S_GRAVENDIJKWAL_MILIEUZONE" "NL_S_HERTOGENBOSCH_ZERO_EMISSIEZONE" "NL_SCHEVENINGSE_HAVEN_MILIEUZONE" "NL_SCHIPHOL_ZERO_EMISSIEZONE" "NL_TILBURG_MILIEUZONE" "NL_TILBURG_ZERO_EMISSIEZONE" "NL_UTRECHT_MILIEUZONE" "NL_UTRECHT_ZERO_EMISSIEZONE" "NL_ZWOLLE_ZERO_EMISSIEZONE" "PT_EIXO_AV_LIBERDADE_BAIXA_ZER"
+            "BE_LAGE_EMISSIEZONE_ANTWERPEN" "BE_LAGE_EMISSIEZONE_GENT" "BE_ZONE_BASSE_EMISSION_BRUXELLES" "DE_STUTTGART_KLEINE_UMWELTZONE" "DE_STUTTGART_UMWELTZONE" "DK_AALBORG_MILJOZONE" "DK_ARHUS_MILJOZONE" "DK_FREDERIKSBERG_MILJOZONE" "DK_KOBENHAVN_MILJOZONE" "DK_ODENSE_MILJOZONE" "ES_ZBEDEP_MADRID_PLAZA_ELIPTICA" "ES_ZBE_ALCOBENDAS" "ES_ZBE_ALICANTE" "ES_ZBE_ALMERIA" "ES_ZBE_BENIDORM" "ES_ZBE_BILBAO" "ES_ZBE_BOADILLA_DEL_MONTE" "ES_ZBE_BURGOS" "ES_ZBE_CASTELLDEFELS" "ES_ZBE_CERDANYOLA_DEL_VALLES" "ES_ZBE_CHICLANA_DE_LA_FRONTERA" "ES_ZBE_CORDOBA" "ES_ZBE_CUENCA" "ES_ZBE_EL_PRAT_DE_LLOBREGAT" "ES_ZBE_ELDA" "ES_ZBE_ESTEPONA" "ES_ZBE_FUENLABRADA" "ES_ZBE_GETAFE" "ES_ZBE_GIRONA" "ES_ZBE_GRANADA" "ES_ZBE_GRANOLLERS" "ES_ZBE_GUADALAJARA" "ES_ZBE_JEREZ_DE_LA_FRONTERA" "ES_ZBE_LLEIDA" "ES_ZBE_MADRID" "ES_ZBE_MOLLET_DEL_VALLES" "ES_ZBE_MOSTOLES" "ES_ZBE_MOTRIL" "ES_ZBE_PALMA" "ES_ZBE_PAMPLONA" "ES_ZBE_PARLA" "ES_ZBE_REUS" "ES_ZBE_RIVAS_CEIP_COLEGIO_LUYFE" "ES_ZBE_RIVAS_CEIP_DULCE_CHACON" "ES_ZBE_RIVAS_CEIP_HANS_CHRISTIAN_ANDERSEN" "ES_ZBE_RIVAS_CEIP_JARAMA" "ES_ZBE_RIVAS_CEIP_JOSE_HIERRO" "ES_ZBE_RIVAS_CEIP_JOSE_ITURZAETA" "ES_ZBE_RIVAS_CEIP_LAS_CIGUENAS" "ES_ZBE_RIVAS_CEIP_VICTORIA_KENT" "ES_ZBE_RIVAS_COLEGIO_SANTA_MONICA" "ES_ZBE_RUBI" "ES_ZBE_SABADELL" "ES_ZBE_SAN_SEBASTIAN" "ES_ZBE_SEGOVIA" "ES_ZBE_TARRAGONA" "ES_ZBE_TERRASSA" "ES_ZBE_TORREJON_DE_ARDOZ" "ES_ZBE_TORRELAVEGA" "ES_ZBE_TORREMOLINOS" "ES_ZBE_VALLADOLID" "ES_ZBE_VITORIA_GASTEIZ" "FR_ANGERS_ZFE" "FR_PARIS_ZFE" "FR_STRASBOURG_ZFE" "FR_TOULOUSE_ZFE" "GB_ABERDEEN_LEZ" "GB_BATH_CAZ" "GB_BIRMINGHAM_CAZ" "GB_BRADFORD_CAZ" "GB_BRISTOL_CAZ" "GB_DUNDEE_LEZ" "GB_EDINBURGH_LEZ" "GB_GLASGOW_LEZ" "GB_LONDON_ULTRA_LOW_EMISSION_ZONE" "GB_NEWCASTLE_CAZ" "GB_PORTSMOUTH_CAZ" "GB_SHEFFIELD_CAZ" "IT_MILANO_AREA_C" "IT_PALERMO_ZTL" "NL_AMERSFOORT_ZERO_EMISSIEZONE" "NL_AMSTERDAM_MILIEUZONE" "NL_AMSTERDAM_ZERO_EMISSIEZONE" "NL_ARNHEM_MILIEUZONE" "NL_ASSEN_ZERO_EMISSIEZONE" "NL_BREDA_MILIEUZONE" "NL_DELFT_HAAG_ZERO_EMISSIEZONE" "NL_DELFT_MILIEUZONE" "NL_DEN_HAAG_MILIEUZONE" "NL_DEN_HAAG_ZERO_EMISSIEZONE" "NL_EINDHOVEN_MILIEUZONE" "NL_EINDHOVEN_ZERO_EMISSIEZONE" "NL_ENSCHEDE_ZERO_EMISSIEZONE" "NL_GOUDA_ZERO_EMISSIEZONE" "NL_GRONINGEN_ZERO_EMISSIEZONE" "NL_HAARLEM_MILIEUZONE" "NL_LEIDEN_MILIEUZONE" "NL_LEIDEN_ZERO_EMISSIEZONE" "NL_MAASTRICHT_MILIEUZONE" "NL_MAASTRICHT_ZERO_EMISSIEZONE" "NL_MAASVLAKTE_ROTTERDAM_MILIEUZONE" "NL_NIJMEGEN_ZERO_EMISSIEZONE" "NL_RIJSWIJK_MILIEUZONE" "NL_ROTTERDAM_MILIEUZONE" "NL_ROTTERDAM_ZERO_EMISSIEZONE" "NL_S_GRAVENDIJKWAL_MILIEUZONE" "NL_S_HERTOGENBOSCH_ZERO_EMISSIEZONE" "NL_SCHEVENINGSE_HAVEN_MILIEUZONE" "NL_SCHIPHOL_ZERO_EMISSIEZONE" "NL_TILBURG_MILIEUZONE" "NL_TILBURG_ZERO_EMISSIEZONE" "NL_UTRECHT_MILIEUZONE" "NL_UTRECHT_ZERO_EMISSIEZONE" "NL_ZWOLLE_ZERO_EMISSIEZONE" "PT_EIXO_AV_LIBERDADE_BAIXA_ZER"
 
             The following values are deprecated: "NL_S_HERTOGENBOSCH_MILIEUZONE" "NL_LEIDEN_MILIEUZONE" "NL_ROTTERDAM_MILIEUZONE" "NL_S_GRAVENDIJKWAL_MILIEUZONE" "NL_TILBURG_MILIEUZONE"
 
@@ -1918,6 +1918,8 @@ components:
           - BE_LAGE_EMISSIEZONE_ANTWERPEN
           - BE_LAGE_EMISSIEZONE_GENT
           - BE_ZONE_BASSE_EMISSION_BRUXELLES
+          - DE_STUTTGART_KLEINE_UMWELTZONE
+          - DE_STUTTGART_UMWELTZONE
           - DK_AALBORG_MILJOZONE
           - DK_ARHUS_MILJOZONE
           - DK_FREDERIKSBERG_MILJOZONE
@@ -1947,6 +1949,7 @@ components:
           - ES_ZBE_GUADALAJARA
           - ES_ZBE_JEREZ_DE_LA_FRONTERA
           - ES_ZBE_LLEIDA
+          - ES_ZBE_MADRID
           - ES_ZBE_MOLLET_DEL_VALLES
           - ES_ZBE_MOSTOLES
           - ES_ZBE_MOTRIL
@@ -1975,7 +1978,9 @@ components:
           - ES_ZBE_VALLADOLID
           - ES_ZBE_VITORIA_GASTEIZ
           - FR_ANGERS_ZFE
+          - FR_PARIS_ZFE
           - FR_STRASBOURG_ZFE
+          - FR_TOULOUSE_ZFE
           - GB_ABERDEEN_LEZ
           - GB_BATH_CAZ
           - GB_BIRMINGHAM_CAZ
@@ -2377,6 +2382,8 @@ components:
       - BE_LAGE_EMISSIEZONE_ANTWERPEN
       - BE_LAGE_EMISSIEZONE_GENT
       - BE_ZONE_BASSE_EMISSION_BRUXELLES
+      - DE_STUTTGART_KLEINE_UMWELTZONE
+      - DE_STUTTGART_UMWELTZONE
       - DK_AALBORG_MILJOZONE
       - DK_ARHUS_MILJOZONE
       - DK_FREDERIKSBERG_MILJOZONE
@@ -2406,6 +2413,7 @@ components:
       - ES_ZBE_GUADALAJARA
       - ES_ZBE_JEREZ_DE_LA_FRONTERA
       - ES_ZBE_LLEIDA
+      - ES_ZBE_MADRID
       - ES_ZBE_MOLLET_DEL_VALLES
       - ES_ZBE_MOSTOLES
       - ES_ZBE_MOTRIL
@@ -2434,7 +2442,9 @@ components:
       - ES_ZBE_VALLADOLID
       - ES_ZBE_VITORIA_GASTEIZ
       - FR_ANGERS_ZFE
+      - FR_PARIS_ZFE
       - FR_STRASBOURG_ZFE
+      - FR_TOULOUSE_ZFE
       - GB_ABERDEEN_LEZ
       - GB_BATH_CAZ
       - GB_BIRMINGHAM_CAZ
@@ -2490,6 +2500,8 @@ components:
       - BE_LAGE_EMISSIEZONE_ANTWERPEN
       - BE_LAGE_EMISSIEZONE_GENT
       - BE_ZONE_BASSE_EMISSION_BRUXELLES
+      - DE_STUTTGART_KLEINE_UMWELTZONE
+      - DE_STUTTGART_UMWELTZONE
       - DK_AALBORG_MILJOZONE
       - DK_ARHUS_MILJOZONE
       - DK_FREDERIKSBERG_MILJOZONE
@@ -2519,6 +2531,7 @@ components:
       - ES_ZBE_GUADALAJARA
       - ES_ZBE_JEREZ_DE_LA_FRONTERA
       - ES_ZBE_LLEIDA
+      - ES_ZBE_MADRID
       - ES_ZBE_MOLLET_DEL_VALLES
       - ES_ZBE_MOSTOLES
       - ES_ZBE_MOTRIL
@@ -2547,7 +2560,9 @@ components:
       - ES_ZBE_VALLADOLID
       - ES_ZBE_VITORIA_GASTEIZ
       - FR_ANGERS_ZFE
+      - FR_PARIS_ZFE
       - FR_STRASBOURG_ZFE
+      - FR_TOULOUSE_ZFE
       - GB_ABERDEEN_LEZ
       - GB_BATH_CAZ
       - GB_BIRMINGHAM_CAZ
@@ -4169,8 +4184,10 @@ components:
             \ with the type _RAIL_.\n* `HIGHWAYS` - Avoid highways and motorways.\
             \ Waypoints will not be matched to highways, they will be matched to the\
             \ nearest road which is not a highway.\n\nThis parameter will be ignored,\
-            \ if **options[routingMode]=MONETARY** or a **routeId** is specified.\n\
-            See [here](./concepts/avoid) for more information. "
+            \ if **options[routingMode]=MONETARY** or a **routeId** is specified.\
+            \ \nAll values except for _FERRIES_ will also be ignored for non-motorized\
+            \ profiles such as _BICYCLE_ or _PEDESTRIAN_.\nSee [here](./concepts/avoid)\
+            \ for more information. "
           type: string
         blockIntersectingRoads:
           description: "Pipe-separated list of polylines.  \nRoads and combined transports\
@@ -6720,7 +6737,20 @@ components:
             maximumSpeed: 190
           - minimumSpeed: 174
             maximumSpeed: 190
-          timePreferenceOverDistance: 11
+          penalties:
+            byRoadCategory:
+            - 205
+            - 205
+            - 205
+            - 205
+            - 205
+            deliveryOnly: 1191
+            residentsOnly: 1207
+            toll: 2492
+            ferries: 2337
+            railShuttles: 1638
+          allowDeliveryOnlyGates: true
+          timePreferenceOverDistance: 87
       properties:
         waypoints:
           description: |-
@@ -7447,7 +7477,20 @@ components:
           maximumSpeed: 190
         - minimumSpeed: 174
           maximumSpeed: 190
-        timePreferenceOverDistance: 11
+        penalties:
+          byRoadCategory:
+          - 205
+          - 205
+          - 205
+          - 205
+          - 205
+          deliveryOnly: 1191
+          residentsOnly: 1207
+          toll: 2492
+          ferries: 2337
+          railShuttles: 1638
+        allowDeliveryOnlyGates: true
+        timePreferenceOverDistance: 87
       properties:
         maximumSpeed:
           description: |-
@@ -7478,6 +7521,17 @@ components:
           maxItems: 8
           minItems: 8
           type: array
+        penalties:
+          $ref: "#/components/schemas/PenaltyOptions"
+        allowDeliveryOnlyGates:
+          description: "If set to true, gates that restrict access to delivery-only\
+            \ zones are allowed to pass during route calculation.\nA delivery-only\
+            \ gate is located at a specific point of the road network where passing\
+            \ through is normally\nprohibited unless the vehicle is authorized for\
+            \ delivery.\n\nThis parameter will be ignored, if a **routeId** is specified.\
+            \ \nIt will also be ignored for non-motorized profiles such as _BICYCLE_\
+            \ or _PEDESTRIAN_."
+          type: boolean
         timePreferenceOverDistance:
           description: |-
             Specifies the weighting between travel time and travel distance when calculating a route.
@@ -7540,6 +7594,89 @@ components:
       required:
       - maximumSpeed
       - minimumSpeed
+      type: object
+    PenaltyOptions:
+      description: |-
+        Options to configure penalties for specific road categories or road types.
+        Penalties influence the route calculation by making certain roads more or less attractive.
+        Use these parameters carefully, in particular negative or blocking values can lead to unwanted results.
+
+        **Value ranges:**
+        * `-99` to `-1` — Preference (makes the road more attractive)
+        * `0` — No effect (default)
+        * `1` to `2500` — Avoidance (makes the road less attractive, higher = stronger avoidance)
+        * `2501` — Blocked (road is prohibited, may cause violations if no alternative exists, in particular when a waypoint is located on such a road)
+
+        All penalties except for **byRoadCategory**, **ferries** and **railShuttles** will be ignored for non-motorized profiles such as _BICYCLE_ or _PEDESTRIAN_.
+
+        Behavior for requests with **routeId**: When a **routeId** is specified, all penalties are ignored.
+
+        Behavior for **routingMode** _MONETARY_: As route calculation is optimized for costs, penalties have no effect.
+        Therefore, only the values 0 (roads are allowed) and 2501 (roads are blocked) are supported. All other values are ignored.
+
+        Behavior for **options[avoid]**: When both **options[avoid]** and a penalty are specified for the same road type, the request is rejected with an error.
+
+        See [here](./concepts/penalties) for more information.
+      example:
+        byRoadCategory:
+        - 205
+        - 205
+        - 205
+        - 205
+        - 205
+        deliveryOnly: 1191
+        residentsOnly: 1207
+        toll: 2492
+        ferries: 2337
+        railShuttles: 1638
+      properties:
+        byRoadCategory:
+          description: |-
+            Penalty values per road category [8 elements].
+            The first element represents motorways, the last one pedestrian and cycle paths.
+            See [here](../data-api/concepts/road-categories) for more information on road categories.
+            Cannot be used together with **options[avoid]=HIGHWAYS** or **options[routingMode]=SHORTEST**.
+
+            Example: `[0,0,15,35,100,255,1000,1000]`
+          items:
+            format: int32
+            maximum: 2501
+            minimum: -99
+            type: integer
+          maxItems: 8
+          minItems: 8
+          type: array
+        deliveryOnly:
+          description: Penalty for roads that are restricted to delivery vehicles
+            only. The value 2501 is currently not supported.
+          format: int32
+          maximum: 2500
+          minimum: -99
+          type: integer
+        residentsOnly:
+          description: Penalty for roads that are restricted to residents only.
+          format: int32
+          maximum: 2501
+          minimum: -99
+          type: integer
+        toll:
+          description: "Penalty for toll roads. Cannot be used together with **options[avoid]=TOLL**."
+          format: int32
+          maximum: 2501
+          minimum: -99
+          type: integer
+        ferries:
+          description: "Penalty for ferries. Cannot be used together with **options[avoid]=FERRIES**."
+          format: int32
+          maximum: 2501
+          minimum: -99
+          type: integer
+        railShuttles:
+          description: "Penalty for rail shuttles. Cannot be used together with **options[avoid]=RAIL_SHUTTLES**."
+          format: int32
+          maximum: 2501
+          minimum: -99
+          type: integer
       type: object
     BlockIntersectingRoads:
       description: "Pipe-separated list of polylines.  \nRoads and combined transports\

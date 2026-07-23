@@ -68,6 +68,7 @@ docs/OnRoadWaypoint.md
 docs/Options.md
 docs/ParticleReductionClass.md
 docs/PaymentMethod.md
+docs/PenaltyOptions.md
 docs/PolylineFormat.md
 docs/PolylineMapType.md
 docs/PositionAtWaypoint.md
@@ -188,6 +189,7 @@ model_on_road_waypoint.go
 model_options.go
 model_particle_reduction_class.go
 model_payment_method.go
+model_penalty_options.go
 model_polyline_format.go
 model_polyline_map_type.go
 model_position_at_waypoint.go
