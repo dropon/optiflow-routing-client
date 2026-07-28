@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | **string** | The date of the exchange rates formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339). | 
+**Date** | **string** | The date of the exchange rates formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339). The rate may be older if there is no newer rate available. | 
 **Provider** | **string** | The provider of the exchange rates. | 
 **BaseCurrency** | **string** | The [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code as provided in the request. | 
 **ExchangeRates** | [**[]ExchangeRate**](ExchangeRate.md) | The exchange rates that were used to determine the converted prices. | 

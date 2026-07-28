@@ -21,7 +21,7 @@ var _ MappedNullable = &Currencies{}
 
 // Currencies Information about the currencies that are listed in the toll costs and/or toll sections objects.
 type Currencies struct {
-	// The date of the exchange rates formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339).
+	// The date of the exchange rates formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339). The rate may be older if there is no newer rate available.
 	Date string `json:"date"`
 	// The provider of the exchange rates.
 	Provider string `json:"provider"`

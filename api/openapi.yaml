@@ -3371,7 +3371,10 @@ components:
             \ which weather forecast is available.\n* `ROUTING_ELEVATIONS_UNAVAILABLE`\
             \ - Elevations are unavailable for regions beyond -60° and +60° latitude.\n\
             \  * `results` - No elevations were considered when calculating these\
-            \ **results** for such parts of the route.\n"
+            \ **results** for such parts of the route.\n* `ROUTING_TOLL_EXCHANGE_RATE_UNAVAILABLE`\
+            \ - The exchange rate for at least one toll currency is not available.\
+            \ Toll prices in affected currencies are not converted.\n  * `currencies`\
+            \ - The currencies for which no exchange rate is available (array of strings).\n"
           type: string
         details:
           additionalProperties: true
@@ -5676,8 +5679,9 @@ components:
           rate: 3.616076749251911
       properties:
         date:
-          description: "The date of the exchange rates formatted according to [RFC\
-            \ 3339](https://tools.ietf.org/html/rfc3339)."
+          description: |-
+            The date of the exchange rates formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339).
+            The rate may be older if there is no newer rate available.
           format: date
           type: string
         provider:
@@ -7547,6 +7551,7 @@ components:
             route planning.
 
             This parameter will be ignored, if a **routeId** is specified.
+            Cannot be used together with **options[routingMode]=SHORT** or **options[routingMode]=SHORTEST**.
           format: int32
           maximum: 100
           minimum: 0
