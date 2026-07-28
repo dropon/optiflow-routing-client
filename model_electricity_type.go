@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// ElectricityType The electricity type of the vehicle.  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for `emissions`. 
+// ElectricityType The electricity type of the vehicle.  Supported for **engineType** _ELECTRIC_ or _HYBRID_. Relevant for `emissions`.
 type ElectricityType string
 
 // List of ElectricityType
 const (
-	BATTERY ElectricityType = "BATTERY"
-	HYDROGEN_FUEL_CELL ElectricityType = "HYDROGEN_FUEL_CELL"
-	NONE ElectricityType = "NONE"
+	BATTERY               ElectricityType = "BATTERY"
+	HYDROGEN_FUEL_CELL    ElectricityType = "HYDROGEN_FUEL_CELL"
+	NONE_ELECTRICITY_TYPE ElectricityType = "NONE"
 )
 
 // All allowed values of ElectricityType enum
@@ -110,4 +110,3 @@ func (v *NullableElectricityType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
